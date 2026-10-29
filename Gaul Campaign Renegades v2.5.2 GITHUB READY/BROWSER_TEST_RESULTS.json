@@ -1,0 +1,85 @@
+{
+  "passed": 8,
+  "total": 8,
+  "cases": [
+    {
+      "test": "valid_thall_bloodletter",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "Warlord selectionExpected exactly one selected Warlord; found 0."
+      ]
+    },
+    {
+      "test": "invocation_without_reserves",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "Warlord selectionExpected exactly one selected Warlord; found 0.",
+        "Planned Invocation lacks declared Reserve BloodlettersSelect and pay for Bloodletters, then use their optional Reserves declaration."
+      ]
+    },
+    {
+      "test": "lost_cohort_three",
+      "pass": true,
+      "errors": [
+        "Combined Lost Cohort cap3 of maximum 2 Cohort units.",
+        "Lost Cohort Chaplain formationLost Cohort \u2014 Power Armour must have exactly one size choice with a paid attached Chaplain.",
+        "Lost Cohort Chaplain formationLost Cohort \u2014 Power Armour must have exactly one size choice with a paid attached Chaplain.",
+        "Lost Cohort Chaplain formationLost Cohort \u2014 Power Armour must have exactly one size choice with a paid attached Chaplain."
+      ],
+      "warnings": [
+        "Warlord selectionExpected exactly one selected Warlord; found 0."
+      ]
+    },
+    {
+      "test": "leader_not_purchased",
+      "pass": true,
+      "errors": [
+        "Leader not purchasedVarroth declared attached to Ashen Chain Terminators, but no separately purchased Leader is present."
+      ],
+      "warnings": [
+        "Warlord selectionExpected exactly one selected Warlord; found 0."
+      ]
+    },
+    {
+      "test": "daemon_over_budget",
+      "pass": true,
+      "errors": [
+        "Khorne Daemon allies exceed 25%Detected 600 points against 500 maximum."
+      ],
+      "warnings": [
+        "Warlord selectionExpected exactly one selected Warlord; found 0."
+      ]
+    },
+    {
+      "test": "unapproved_enhancement",
+      "pass": true,
+      "errors": [
+        "Enhancement not authorisedAssault Jump Cadre selects The Measured Strike without the matching authorisation in MUSTER SETTINGS."
+      ],
+      "warnings": [
+        "Warlord selectionExpected exactly one selected Warlord; found 0."
+      ]
+    },
+    {
+      "test": "authorised_enhancement",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "Warlord selectionExpected exactly one selected Warlord; found 0."
+      ]
+    },
+    {
+      "test": "twice_invocation",
+      "pass": true,
+      "errors": [
+        "Multiple planned Bloodletter invokersOnly one optional planning token can be selected across the army."
+      ],
+      "warnings": [
+        "Warlord selectionExpected exactly one selected Warlord; found 0.",
+        "Planned Invocation lacks declared Reserve BloodlettersSelect and pay for Bloodletters, then use their optional Reserves declaration."
+      ]
+    }
+  ]
+}

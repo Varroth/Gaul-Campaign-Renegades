@@ -1,0 +1,30 @@
+{
+  "name": "Gaul Campaign: Renegades",
+  "version": "2.5.2",
+  "git_published": false,
+  "new_recruit_live_verified": false,
+  "automated_xml_checks_passed": 39069,
+  "chromium_synthetic_tests_passed": 8,
+  "files": {
+    "Gaul_Campaign_Renegades.gst": {
+      "bytes": 8769,
+      "sha256": "bfffe9fa5c7f41dccc5421def18aa281602543cad0240160fb5f9032aabb032d"
+    },
+    "Infernal_Warriors.cat": {
+      "bytes": 5155760,
+      "sha256": "358e59cb31e056b4ab3980d07d3e54ce286f5999abba7c36a965e63239cabd79"
+    },
+    "Frozen_Cogs_FUTURE.cat": {
+      "bytes": 993,
+      "sha256": "6c0bbeffee8bd6167efdfa3768a8644f517afdd80808d44111f73463c1392a01"
+    },
+    "Abandoned_Dead_FUTURE.cat": {
+      "bytes": 999,
+      "sha256": "fbf4f8db41f97d7e5665280cad8cf5a71c83deb47efb6889b8aa905672d47393"
+    },
+    "Silver_Tempest_FUTURE.cat": {
+      "bytes": 999,
+      "sha256": "bbbae15b37d3f5a62c0a79eb6d11c2452e6830483489743b1a0e8c103d6439a6"
+    }
+  }
+}

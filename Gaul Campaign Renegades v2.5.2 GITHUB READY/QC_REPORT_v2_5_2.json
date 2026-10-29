@@ -1,0 +1,16 @@
+{
+  "version": "2.5.2",
+  "baseline": "2.5.1",
+  "passed": 39069,
+  "total": 39069,
+  "failures": [],
+  "base_ids": 19478,
+  "new_ids": 19788,
+  "new_objects": 310,
+  "unit_entries": 103,
+  "named_leader_tokens": 19,
+  "bodyguard_groups": 15,
+  "pairs": 59,
+  "new_presets": 4,
+  "battlescribe_live_test": false
+}

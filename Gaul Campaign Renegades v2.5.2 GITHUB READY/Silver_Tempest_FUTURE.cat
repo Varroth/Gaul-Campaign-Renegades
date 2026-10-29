@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="3a31f2f2-5279-5e0c" name="Silver Tempest [FUTURE — IN DEVELOPMENT]" revision="1" battleScribeVersion="2.03" gameSystemId="0408-b3dc-97f0-53dc" gameSystemRevision="6" library="false">
+  <selectionEntries>
+    <selectionEntry id="fa97a573-c478-5071" name="IN DEVELOPMENT — no playable datasheets yet" hidden="false" collective="false" type="upgrade" import="true">
+      <profiles>
+        <profile id="af1240a1-5949-5baf" name="Status" hidden="false" typeId="bd5c-f804-35b5-510d" typeName="Ability">
+          <characteristics>
+            <characteristic name="Description" typeId="4c71-0d90-3b92-5cec">Silver Tempest is a reserved future catalogue. Do not use it for games: no rules, units, costs or allegiance are established by this file.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+  </selectionEntries>
+</catalogue>

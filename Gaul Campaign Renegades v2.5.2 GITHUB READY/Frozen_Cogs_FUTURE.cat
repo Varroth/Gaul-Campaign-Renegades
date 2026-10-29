@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="9a0b2133-696e-5c99" name="Frozen Cogs [FUTURE — IN DEVELOPMENT]" revision="1" battleScribeVersion="2.03" gameSystemId="0408-b3dc-97f0-53dc" gameSystemRevision="6" library="false">
+  <selectionEntries>
+    <selectionEntry id="bc8fd002-883a-59b3" name="IN DEVELOPMENT — no playable datasheets yet" hidden="false" collective="false" type="upgrade" import="true">
+      <profiles>
+        <profile id="8b2094ed-142b-5204" name="Status" hidden="false" typeId="bd5c-f804-35b5-510d" typeName="Ability">
+          <characteristics>
+            <characteristic name="Description" typeId="4c71-0d90-3b92-5cec">Frozen Cogs is a reserved future catalogue. Do not use it for games: no rules, units, costs or allegiance are established by this file.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+  </selectionEntries>
+</catalogue>
