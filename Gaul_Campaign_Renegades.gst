@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="0408-b3dc-97f0-53dc" name="Gaul Campaign: Renegades" revision="6" battleScribeVersion="2.03">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="0408-b3dc-97f0-53dc" name="Gaul Campaign: Renegades" revision="7" battleScribeVersion="2.03">
   <costTypes>
     <costType id="0246-3343-a75c-5ffa" name="pts" defaultCostLimit="-1.0" hidden="false"/>
     <costType id="6c3b-5f19-3bc2-5dbb" name="DP" defaultCostLimit="3.0" hidden="false"/>
@@ -51,7 +51,12 @@
     <categoryEntry id="2962-6989-212f-598d" name="Lost Cohort" hidden="false"><constraints><constraint id="5fb20465-2d7f-49e5" type="max" field="selections" scope="roster" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="true"/></constraints></categoryEntry>
     <categoryEntry id="3c17-c261-4038-5fcc" name="Detachments" hidden="false"/>
     <categoryEntry id="40b7-29b0-a885-5757" name="Enhancements" hidden="false"/>
-  <categoryEntry id="9bc4-2501-1ea8-5f22" name="Muster Settings" hidden="false"><constraints><constraint id="a3e0bc94-56c6-4d15-87d4-6b41feb1bd3f" type="min" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="true"/><constraint id="3f4ebc3c-5ba2-461e-81a6-6a561ac06f4b" type="max" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="true"/></constraints></categoryEntry><categoryEntry id="b9f3-c313-59f0-5cef" name="Force Dispositions" hidden="false"><constraints><constraint id="27269594-7e74-4e70-9240-6c5e27ac21fc" type="min" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="true"/><constraint id="bee1fe7f-89cc-40d6-a168-28d4f8f8a166" type="max" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="true"/></constraints></categoryEntry><categoryEntry id="524e-6fc1-14f9-5aa1" name="Configuration Tools" hidden="false"/></categoryEntries>
+  <categoryEntry id="9bc4-2501-1ea8-5f22" name="Muster Settings" hidden="false"><constraints><constraint id="a3e0bc94-56c6-4d15-87d4-6b41feb1bd3f" type="min" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="true"/><constraint id="3f4ebc3c-5ba2-461e-81a6-6a561ac06f4b" type="max" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="true"/></constraints></categoryEntry><categoryEntry id="b9f3-c313-59f0-5cef" name="Force Dispositions" hidden="false"><constraints><constraint id="27269594-7e74-4e70-9240-6c5e27ac21fc" type="min" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="true"/><constraint id="bee1fe7f-89cc-40d6-a168-28d4f8f8a166" type="max" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="true"/></constraints></categoryEntry><categoryEntry id="524e-6fc1-14f9-5aa1" name="Configuration Tools" hidden="false"/>    <categoryEntry id="adbd-c48e-4b21-0002" name="Specialists" hidden="false"/>
+    <categoryEntry id="adbd-c48e-4b21-0003" name="Vehicles &amp; Support" hidden="false"/>
+    <categoryEntry id="adbd-c48e-4b21-a001" name="ASTARTES" hidden="false"/>
+    <categoryEntry id="adbd-c48e-4b21-a002" name="DIRECTORATE" hidden="false"/>
+    <categoryEntry id="adbd-c48e-4b21-a003" name="CULTISTS" hidden="false"/>
+  </categoryEntries>
   <forceEntries>
     <forceEntry id="73a9-6482-df85-55c4" name="Infernal Warriors Muster" hidden="false">
       <categoryLinks>
@@ -83,6 +88,17 @@
         </categoryLink>
         <categoryLink id="c05e-5394-0f2c-5661" name="Enhancements" hidden="false" targetId="40b7-29b0-a885-5757" primary="false"/>
       <categoryLink id="2a5115d4-57f7-4858" name="Muster Settings" hidden="false" targetId="9bc4-2501-1ea8-5f22" primary="false"/><categoryLink id="b9ec8b0a-f05d-43c8" name="Force Dispositions" hidden="false" targetId="b9f3-c313-59f0-5cef" primary="false"/><categoryLink id="602d1e48-aeb7-41d6" name="Configuration Tools" hidden="false" targetId="524e-6fc1-14f9-5aa1" primary="false"/></categoryLinks>
+    </forceEntry>
+      <forceEntry id="ada1-e202-6a1d-ecad" name="Abandoned Dead Task Force" hidden="false">
+      <categoryLinks>
+        <categoryLink id="ad7f-0000-fcce-2026" name="Command" hidden="false" targetId="b411-6717-d966-5c6d" primary="false"/>
+        <categoryLink id="ad7f-0001-fcce-2026" name="Battleline" hidden="false" targetId="ec2c-68bb-bfbc-5ee3" primary="false"/>
+        <categoryLink id="ad7f-0002-fcce-2026" name="Specialists" hidden="false" targetId="adbd-c48e-4b21-0002" primary="false"/>
+        <categoryLink id="ad7f-0003-fcce-2026" name="Vehicles &amp; Support" hidden="false" targetId="adbd-c48e-4b21-0003" primary="false"/>
+        <categoryLink id="ad7f-0004-fcce-2026" name="ASTARTES" hidden="false" targetId="adbd-c48e-4b21-a001" primary="false"/>
+        <categoryLink id="ad7f-0005-fcce-2026" name="DIRECTORATE" hidden="false" targetId="adbd-c48e-4b21-a002" primary="false"/>
+        <categoryLink id="ad7f-0006-fcce-2026" name="CULTISTS" hidden="false" targetId="adbd-c48e-4b21-a003" primary="false"/>
+      </categoryLinks>
     </forceEntry>
   </forceEntries>
 </gameSystem>

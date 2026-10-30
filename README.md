@@ -1,6 +1,6 @@
-# Gaul Campaign: Renegades — v2.5.2
+# Gaul Campaign: Renegades — Infernal Warriors v2.5.2 + Abandoned Dead v1.7
 
-**Homebrew Warhammer 40,000 army-builder data** for New Recruit / BattleScribe. Contains the Infernal Warriors, plus clearly marked future placeholders for Frozen Cogs, Abandoned Dead and Silver Tempest.
+**Homebrew Warhammer 40,000 army-builder data** for New Recruit / BattleScribe. Contains the playable Infernal Warriors and Abandoned Dead, plus clearly marked future placeholders for Frozen Cogs and Silver Tempest.
 
 ## Installation from downloaded ZIP
 
@@ -8,7 +8,7 @@
 2. Back up any existing `.ros` rosters from the previous version.
 3. Open [New Recruit](https://www.newrecruit.eu/app) > **MySystems**.
 4. Import `Gaul_Campaign_Renegades.gst` and the four `.cat` files from the extracted directory. Replace or refresh the earlier local dataset as needed.
-5. Select **Gaul Campaign: Renegades > Infernal Warriors** and verify your existing army.
+5. Select **Gaul Campaign: Renegades > Infernal Warriors** to verify your existing army, or **Abandoned Dead Task Force** to build an Abandoned Dead army.
 
 ## GitHub-based updates
 
@@ -23,6 +23,11 @@ The five importable files are also in the **root** of this repository-ready pack
 - New four preset loadouts remain editable and have no extra surcharge.
 - The existing distinct Enhancement authorization system remains in place (separate approval in **01 — START HERE** followed by buying the upgrade on the unit).
 - To run additional offline warnings and get an organized printable roster, export uncompressed `.ros` XML and open `ROSTER_FIELD_CHECK.html` in your browser, then choose the `.ros` file. No data is uploaded.
+
+
+## Abandoned Dead v1.7 (playtest)
+
+The old Abandoned Dead placeholder is now a playable 59-unit catalogue with integrated Astartes, Directorate, covert, and cultist forces under one Abandoned Dead faction. This update requires the revised system revision 7. See [Abandoned Dead release notes](ABANDONED_DEAD_RELEASE_NOTES_v1_7.md) for QC status and in-app validation tasks. **Do not assume in-app import/export or competitive points balance have been verified.**
 
 ## Known limitations
 
