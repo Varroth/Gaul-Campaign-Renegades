@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="2e5a-ada1-0de1-2026" name="Abandoned Dead" revision="8" battleScribeVersion="2.03" gameSystemId="0408-b3dc-97f0-53dc" gameSystemRevision="9" library="false" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="2e5a-ada1-0de1-2026" name="Abandoned Dead" revision="9" battleScribeVersion="2.03" gameSystemId="0408-b3dc-97f0-53dc" gameSystemRevision="9" library="false" type="catalogue">
   <selectionEntries>
     <selectionEntry id="79a3-ecef-550e-2cda" name="Vephar, the Uncrowned Sovereign" hidden="false" collective="false" import="true" type="unit">
       <categoryLinks>
@@ -5784,7 +5784,7 @@ APPROVED Stealth + Adaptive Shadowpath: during roster creation choose Infiltrato
         </rule>
       </rules>
       <selectionEntryGroups>
-        <selectionEntryGroup id="2389-68b0-6b2c-1a31" name="Squad Size / Personnel" hidden="false" collective="false" defaultSelectionEntryId="e3d2-218c-2167-bc48">
+        <selectionEntryGroup id="2389-68b0-6b2c-1a31" name="Squad Size / Personnel" hidden="false" collective="false" defaultSelectionEntryId="8e20-e18b-3502-99fa">
           <constraints>
             <constraint id="cbbf-341e-0ee4-fde9" type="min" value="1" field="selections" scope="parent" shared="false" includeChildSelections="false" includeChildForces="false"/>
             <constraint id="9829-6949-7a58-9042" type="max" value="1" field="selections" scope="parent" shared="false" includeChildSelections="false" includeChildForces="false"/>
@@ -7763,7 +7763,7 @@ APPROVED Infiltrators, Stealth, veteran Sergeant Ghost-Sight. Scout Recon Auspex
         </rule>
       </rules>
       <selectionEntryGroups>
-        <selectionEntryGroup id="4e31-4937-124d-a65e" name="Squad Size / Personnel" hidden="false" collective="false" defaultSelectionEntryId="4ff7-9a0e-08e4-6f6d">
+        <selectionEntryGroup id="4e31-4937-124d-a65e" name="Squad Size / Personnel" hidden="false" collective="false" defaultSelectionEntryId="f07d-5168-7977-5856">
           <constraints>
             <constraint id="1ca8-022d-6fab-33a4" type="min" value="1" field="selections" scope="parent" shared="false" includeChildSelections="false" includeChildForces="false"/>
             <constraint id="9e88-9203-83b0-eb3c" type="max" value="1" field="selections" scope="parent" shared="false" includeChildSelections="false" includeChildForces="false"/>
