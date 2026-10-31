@@ -37,6 +37,6 @@ Real native Leader joins, cross-vehicle passenger accounting, and board timing c
 
 GitHub-installed games under **MySystems > Add from GitHub** receive updates automatically as New Recruit refreshes the source. On mobile, use **Menu > Manage Games** to inspect your sources; if old data persists, restart/reopen New Recruit while online. Manually uploaded `.cat`/`.gst` files are not linked to GitHub updates. If you see both a current Abandoned Dead choice and an old placeholder, the GitHub repository no longer contains the placeholder: back up rosters, then remove only the old manually installed game/source from MySystems. Do not delete saved lists or the current GitHub source to force an update.
 
-### Vephar v1.9 Chapter Master (playtest)
+### Vephar, the Uncrowned Sovereign — Chapter Master (v1.9 playtest)
 
-Vephar has five activated battle abilities, his signature halberd, two mutually exclusive ranged choices, and a provisional 220-point cost. The shared game-system and Infernal Warriors are unchanged. Read [v1.9 notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md) for limitations.
+Vephar's canonical epithet is **the Uncrowned Sovereign**; his formal rank remains Chapter Master. Vephar has five activated battle abilities, his signature halberd, two mutually exclusive ranged choices, and a provisional 220-point cost. The shared game-system and Infernal Warriors are unchanged. Read [v1.9 notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md) for limitations.
