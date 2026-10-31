@@ -39,7 +39,7 @@ GitHub-installed games under **MySystems > Add from GitHub** receive updates aut
 
 ### Vephar, the Uncrowned Sovereign — Chapter Master (v1.9 playtest)
 
-Vephar's canonical epithet is **the Uncrowned Sovereign**; his formal rank remains Chapter Master. Vephar has five activated battle abilities, his signature halberd, two mutually exclusive ranged choices, and a provisional 220-point cost. The shared game-system and Infernal Warriors are unchanged. Read [v1.9 notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md) for limitations.
+Vephar's canonical epithet is **the Uncrowned Sovereign**; his formal rank remains Chapter Master. His selectable unit and profile names in `Abandoned_Dead.cat` now use **Vephar, the Uncrowned Sovereign**. Vephar has five activated battle abilities, his signature halberd, two mutually exclusive ranged choices, and a provisional 220-point cost. The shared game-system and Infernal Warriors are unchanged. Read [v1.9 notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md) for limitations.
 
 ## Frozen Cogs v2.3
 
