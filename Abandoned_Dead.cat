@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="2e5a-ada1-0de1-2026" name="Abandoned Dead" revision="4" battleScribeVersion="2.03" gameSystemId="0408-b3dc-97f0-53dc" gameSystemRevision="7" library="false" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="2e5a-ada1-0de1-2026" name="Abandoned Dead" revision="5" battleScribeVersion="2.03" gameSystemId="0408-b3dc-97f0-53dc" gameSystemRevision="7" library="false" type="catalogue">
   <selectionEntries>
     <selectionEntry id="79a3-ecef-550e-2cda" name="Vephar, Chaos Lord of the Abandoned Dead" hidden="false" collective="false" import="true" type="unit">
       <categoryLinks>
@@ -14,69 +14,27 @@
             <characteristic name="M" typeId="8ffa-8367-2184-5557">6"</characteristic>
             <characteristic name="T" typeId="c2bc-ad63-c63b-5cea">5</characteristic>
             <characteristic name="Sv" typeId="f078-5176-43c6-5f6a">2+</characteristic>
-            <characteristic name="W" typeId="ecdc-11e1-15d1-5780">6</characteristic>
+            <characteristic name="W" typeId="ecdc-11e1-15d1-5780">7</characteristic>
             <characteristic name="Ld" typeId="2bb6-cceb-9d3f-5f47">5+</characteristic>
-            <characteristic name="OC" typeId="6bb9-f7e0-3ec4-5517">3</characteristic>
+            <characteristic name="OC" typeId="6bb9-f7e0-3ec4-5517">4</characteristic>
             </characteristics>
         </profile>
-        <profile id="ad7-8fa6-f70d-c493" name="Invulnerable Save" hidden="false" typeId="bd5c-f804-35b5-510d" typeName="Ability"><characteristics><characteristic name="Description" typeId="4c71-0d90-3b92-5cec">This model has a 4+ invulnerable save.</characteristic></characteristics></profile><profile id="7106-0306-86a3-2e94" name="Oathblade" hidden="false" typeId="a4f5-4674-06d7-5496" typeName="Weapon">
-          <characteristics>
-            <characteristic name="Range" typeId="8aa7-21a6-b6c1-50e6">Melee</characteristic>
-            <characteristic name="A" typeId="1df3-e803-7074-57ce">5</characteristic>
-            <characteristic name="BS/WS" typeId="a16c-0b6c-2681-5f8f">2+</characteristic>
-            <characteristic name="S" typeId="846d-1dce-303c-5c75">6</characteristic>
-            <characteristic name="AP" typeId="91f2-51a2-9429-5a60">-2</characteristic>
-            <characteristic name="D" typeId="14cd-2ade-2ccc-5c11">2</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <rules>
-        <rule id="601e-c1d7-a1d5-14c0" name="Unit rules / draft status" hidden="false">
-          <description>Chapter Master; non-Chaos-worshipping renegade
-Vephar’s Command: once per your Shooting phase one other visible friendly ABANDONED DEAD ASTARTES unit within 9" may re-roll one Hit roll (not the same die twice).</description>
-        </rule>
-      <rule id="5dce9503-4346-5bd6-abad" name="Vephar’s Command" hidden="false"><description>once per your Shooting phase one other visible friendly ABANDONED DEAD ASTARTES unit within 9" may re-roll one Hit roll (not the same die twice).</description></rule></rules>
-      <rules>
-        <rule id="574a-2a4e-5688-f77e" name="Leader Attachments (draft)" hidden="false">
-          <description>May attach only to: Ghostline Squad, Blackout Breachers, Pallbearer Veterans. One attached Leader per unit, no extra Sergeant.</description>
-        </rule>
-      </rules>
-      <rules>
-        <rule id="25ef-47a5-1a5c-79fb" name="Ghost-Shroud (passive; approved)" hidden="false">
-          <description>Hidden detection 12" instead of 15". When exposed and not fired this or preceding turn and not Advanced/Charged, has Stealth. Does not automatically gain Hidden.</description>
-        </rule>
-      </rules>
-      <rules>
-        <rule id="33c6-d3cb-b64b-76fc" name="Faction / keyword boundary" hidden="false">
-          <description>FACTION: ABANDONED DEAD. BRANCH: ASTARTES. All share one catalogue. No automatic extra active Ghost-Shroud for mortals.</description>
-        </rule>
-      </rules>
+        <profile id="ad7-8fa6-f70d-c493" name="Invulnerable Save" hidden="false" typeId="bd5c-f804-35b5-510d" typeName="Ability"><characteristics><characteristic name="Description" typeId="4c71-0d90-3b92-5cec">This model has a 4+ invulnerable save.</characteristic></characteristics></profile><profile id="a019-0001-beef-26ab" name="The Veiled Truth — Cleave" hidden="false" typeId="a4f5-4674-06d7-5496" typeName="Weapon"><characteristics><characteristic name="Range" typeId="8aa7-21a6-b6c1-50e6">Melee</characteristic><characteristic name="A" typeId="1df3-e803-7074-57ce">6</characteristic><characteristic name="BS/WS" typeId="a16c-0b6c-2681-5f8f">2+</characteristic><characteristic name="S" typeId="846d-1dce-303c-5c75">8</characteristic><characteristic name="AP" typeId="91f2-51a2-9429-5a60">-3</characteristic><characteristic name="D" typeId="14cd-2ade-2ccc-5c11">3</characteristic><characteristic name="Traits" typeId="0f05-4353-204c-511f">Choose one halberd profile each time he fights</characteristic></characteristics></profile><profile id="a019-0002-beef-26ab" name="The Veiled Truth — Sweep" hidden="false" typeId="a4f5-4674-06d7-5496" typeName="Weapon"><characteristics><characteristic name="Range" typeId="8aa7-21a6-b6c1-50e6">Melee</characteristic><characteristic name="A" typeId="1df3-e803-7074-57ce">10</characteristic><characteristic name="BS/WS" typeId="a16c-0b6c-2681-5f8f">2+</characteristic><characteristic name="S" typeId="846d-1dce-303c-5c75">5</characteristic><characteristic name="AP" typeId="91f2-51a2-9429-5a60">-2</characteristic><characteristic name="D" typeId="14cd-2ade-2ccc-5c11">1</characteristic><characteristic name="Traits" typeId="0f05-4353-204c-511f">Choose one halberd profile each time he fights</characteristic></characteristics></profile>
+      </profiles><rules><rule id="a019-0003-beef-26ab" name="The Unbroken Chain — Command Phase" hidden="false"><description>EACH OF YOUR COMMAND PHASES: Select up to two friendly ABANDONED DEAD INFANTRY units within 12&quot; of Vephar (including his own unit). Until the start of your next Command phase, once in each phase when each selected unit shoots or fights, that unit may re-roll one Wound roll made for one of its attacks. A dice roll cannot be re-rolled more than once.</description></rule><rule id="a019-0004-beef-26ab" name="The Serpent Changes Course — Movement Phase" hidden="false"><description>ONCE PER BATTLE, YOUR MOVEMENT PHASE: Immediately after one friendly ABANDONED DEAD INFANTRY unit within 12&quot; of Vephar finishes a Normal Move, it can make an additional Normal Move of up to 6&quot;. The chosen unit cannot Advance or declare a charge this turn. It must obey normal movement and Engagement Range restrictions. This move does not automatically confer Hidden.</description></rule><rule id="a019-0005-beef-26ab" name="Coordinated Decapitation — Shooting Phase" hidden="false"><description>ONCE PER BATTLE, START OF YOUR SHOOTING PHASE: Select one enemy unit visible to Vephar and within 18&quot; of him; then select up to two friendly ABANDONED DEAD INFANTRY units within 12&quot; of Vephar (including his own unit). Until phase end, add 1 to Hit rolls for attacks these units make against that enemy. Normal cumulative Hit modifier limits apply. This is one use total, not per selected unit.</description></rule><rule id="a019-0006-beef-26ab" name="Ghost-Command Misdirection — Enemy Shooting Phase" hidden="false"><description>ONCE PER BATTLE, OPPONENT SHOOTING PHASE: When a friendly ABANDONED DEAD INFANTRY unit within 12&quot; of Vephar is selected as the target of enemy ranged attacks, declare before Hit rolls. Until phase end, the chosen friendly unit gains the Benefit of Cover against ranged attacks and enemy models cannot re-roll Hit rolls for attacks targeting it. No automatic Hidden and no additional stacked Cover.</description></rule><rule id="a019-0007-beef-26ab" name="The Veiled Truth Unmasked — Fight Phase" hidden="false"><description>ONCE PER BATTLE, WHEN VEPHAR IS SELECTED TO FIGHT: Before attacks, choose Cleave or Sweep on his halberd. Until the end of this Fight phase, Cleave gains [PRECISION] and [LETHAL HITS], OR Sweep gains [SUSTAINED HITS 1]. Apply only to that profile; never attack with both profiles in the same fight.</description></rule><rule id="a019-0008-beef-26ab" name="The Veiled Truth — Wargear" hidden="false"><description>Vephar has The Veiled Truth halberd, and selects The False Witness or a Master-crafted Plasma Pistol. Each fight choose one halberd profile. When equipped with The False Witness, choose Bolter Volley or Precision Execution Round when shooting, never both. Precision Execution Round can be used once per battle.</description></rule><rule id="a019-0009-beef-26ab" name="Leader Attachments" hidden="false"><description>May lead Ghostline Squad, Blackout Breachers, Pallbearer Veterans or Veil Stalker Hunter-Killer Squad. One attached Leader per Bodyguard; no extra Sergeant.</description></rule><rule id="a019-0010-beef-26ab" name="Ghost-Shroud (passive; approved)" hidden="false"><description>Hidden detection 12&quot; instead of 15&quot;. When exposed and not fired this or previous turn and not Advanced or Charged, has Stealth. Does not automatically gain Hidden. This passive doctrine is separate from Vephar’s five activated abilities.</description></rule><rule id="a019-0011-beef-26ab" name="Faction / keyword boundary" hidden="false"><description>FACTION: ABANDONED DEAD. BRANCH: ASTARTES. Vephar commands the loyal subordinates of his non-Chaos-worshipping renegade Chapter. The Chaos Lord title is historical, and deception is directed at enemies, not his Chapter.</description></rule></rules>
+      
+      
+      
+      
       <costs>
-        <cost id="c3ca-bd14-7522-0d76" name="pts" typeId="0246-3343-a75c-5ffa" value="175.0"/>
+        <cost id="c3ca-bd14-7522-0d76" name="pts" typeId="0246-3343-a75c-5ffa" value="220.0"/>
       </costs>
       <selectionEntryGroups>
-        <selectionEntryGroup id="82a3-3df4-f7d6-1b57" name="Primary Ranged Weapon" hidden="false" collective="false" defaultSelectionEntryId="cf4f-0cc8-547e-50c4">
+        <selectionEntryGroup id="82a3-3df4-f7d6-1b57" name="Primary Ranged Weapon" hidden="false" collective="false" defaultSelectionEntryId="a019-0012-beef-26ab">
           <constraints>
             <constraint id="5fc0-228b-9846-2398" type="min" value="1" field="selections" scope="parent" shared="false" includeChildSelections="false" includeChildForces="false"/>
             <constraint id="0674-850a-6561-0861" type="max" value="1" field="selections" scope="parent" shared="false" includeChildSelections="false" includeChildForces="false"/>
           </constraints>
-          <selectionEntries>
-            <selectionEntry id="cf4f-0cc8-547e-50c4" name="Master-crafted Boltgun" hidden="false" collective="false" import="true" type="upgrade">
-              <profiles>
-                <profile id="eab2-806e-f197-958f" name="Master-crafted Boltgun" hidden="false" typeId="a4f5-4674-06d7-5496" typeName="Weapon">
-                  <characteristics>
-                    <characteristic name="Range" typeId="8aa7-21a6-b6c1-50e6">24"</characteristic>
-                    <characteristic name="A" typeId="1df3-e803-7074-57ce">2</characteristic>
-                    <characteristic name="BS/WS" typeId="a16c-0b6c-2681-5f8f">2+</characteristic>
-                    <characteristic name="S" typeId="846d-1dce-303c-5c75">4</characteristic>
-                    <characteristic name="AP" typeId="91f2-51a2-9429-5a60">-1</characteristic>
-                    <characteristic name="D" typeId="14cd-2ade-2ccc-5c11">2</characteristic>
-                    <characteristic name="Traits" typeId="0f05-4353-204c-511f">—</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-            </selectionEntry>
-          </selectionEntries>
+          <selectionEntries><selectionEntry id="a019-0012-beef-26ab" name="The False Witness (default)" hidden="false" collective="false" import="true" type="upgrade"><profiles><profile id="a019-0014-beef-26ab" name="The False Witness — Bolter Volley" hidden="false" typeId="a4f5-4674-06d7-5496" typeName="Weapon"><characteristics><characteristic name="Range" typeId="8aa7-21a6-b6c1-50e6">24&quot;</characteristic><characteristic name="A" typeId="1df3-e803-7074-57ce">3</characteristic><characteristic name="BS/WS" typeId="a16c-0b6c-2681-5f8f">2+</characteristic><characteristic name="S" typeId="846d-1dce-303c-5c75">5</characteristic><characteristic name="AP" typeId="91f2-51a2-9429-5a60">-1</characteristic><characteristic name="D" typeId="14cd-2ade-2ccc-5c11">2</characteristic><characteristic name="Traits" typeId="0f05-4353-204c-511f">Assault; select one firing profile</characteristic></characteristics></profile><profile id="a019-0015-beef-26ab" name="The False Witness — Precision Execution Round" hidden="false" typeId="a4f5-4674-06d7-5496" typeName="Weapon"><characteristics><characteristic name="Range" typeId="8aa7-21a6-b6c1-50e6">24&quot;</characteristic><characteristic name="A" typeId="1df3-e803-7074-57ce">1</characteristic><characteristic name="BS/WS" typeId="a16c-0b6c-2681-5f8f">2+</characteristic><characteristic name="S" typeId="846d-1dce-303c-5c75">6</characteristic><characteristic name="AP" typeId="91f2-51a2-9429-5a60">-2</characteristic><characteristic name="D" typeId="14cd-2ade-2ccc-5c11">3</characteristic><characteristic name="Traits" typeId="0f05-4353-204c-511f">Precision; once per battle; replaces Bolter Volley</characteristic></characteristics></profile></profiles><rules><rule id="a019-0016-beef-26ab" name="False Witness — Once-per-battle ammunition" hidden="false"><description>Choose one firing profile each time Vephar shoots. Precision Execution Round can be fired only once per battle, instead of Bolter Volley.</description></rule></rules></selectionEntry><selectionEntry id="a019-0013-beef-26ab" name="Master-crafted Plasma Pistol" hidden="false" collective="false" import="true" type="upgrade"><profiles><profile id="a019-0017-beef-26ab" name="Master-crafted Plasma Pistol" hidden="false" typeId="a4f5-4674-06d7-5496" typeName="Weapon"><characteristics><characteristic name="Range" typeId="8aa7-21a6-b6c1-50e6">12&quot;</characteristic><characteristic name="A" typeId="1df3-e803-7074-57ce">1</characteristic><characteristic name="BS/WS" typeId="a16c-0b6c-2681-5f8f">2+</characteristic><characteristic name="S" typeId="846d-1dce-303c-5c75">8</characteristic><characteristic name="AP" typeId="91f2-51a2-9429-5a60">-3</characteristic><characteristic name="D" typeId="14cd-2ade-2ccc-5c11">2</characteristic><characteristic name="Traits" typeId="0f05-4353-204c-511f">Pistol, Hazardous</characteristic></characteristics></profile></profiles></selectionEntry></selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
