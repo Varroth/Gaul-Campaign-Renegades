@@ -7,6 +7,7 @@ on:
       - '**.cat'
       - '.github/workflows/new-recruit-revisions.yml'
       - 'scripts/sync_new_recruit_revisions.py'
+      - 'scripts/audit_new_recruit.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -38,6 +39,15 @@ jobs:
               assert int(cat.attrib['revision']) >= 1, path
               print(f"{path}: catalogue revision {cat.attrib['revision']}, system revision {rev}")
           PY
+      - name: Audit catalogues and produce QC report
+        run: python3 scripts/audit_new_recruit.py --report new-recruit-qc.json
+      - name: Upload QC report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: new-recruit-qc
+          path: new-recruit-qc.json
+          if-no-files-found: warn
       - name: Commit metadata fixes if necessary
         run: |
           if ! git diff --quiet -- '*.cat' '*.gst'; then
