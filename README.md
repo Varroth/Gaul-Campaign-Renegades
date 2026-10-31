@@ -1,4 +1,4 @@
-# Gaul Campaign: Renegades — Infernal Warriors v2.5.2 + Abandoned Dead v1.8
+# Gaul Campaign: Renegades — Infernal Warriors v2.5.2 + Abandoned Dead v1.9
 
 **Homebrew Warhammer 40,000 army-builder data** for New Recruit / BattleScribe. Contains the playable Infernal Warriors and Abandoned Dead, plus clearly marked future placeholders for Frozen Cogs and Silver Tempest.
 
@@ -25,9 +25,9 @@ The five importable files are also in the **root** of this repository-ready pack
 - To run additional offline warnings and get an organized printable roster, export uncompressed `.ros` XML and open `ROSTER_FIELD_CHECK.html` in your browser, then choose the `.ros` file. No data is uploaded.
 
 
-## Abandoned Dead v1.8 (playtest)
+## Abandoned Dead v1.9 (playtest)
 
-The old Abandoned Dead placeholder is now a playable 59-unit catalogue with integrated Astartes, Directorate, covert, and cultist forces under one Abandoned Dead faction. This update requires the revised system revision 7. See [Abandoned Dead v1.8 release notes](ABANDONED_DEAD_RELEASE_NOTES_v1_8.md) for QC status and in-app validation tasks. **Do not assume in-app import/export or competitive points balance have been verified.**
+The old Abandoned Dead placeholder is now a playable 59-unit catalogue with integrated Astartes, Directorate, covert, and cultist forces under one Abandoned Dead faction. This update requires the revised system revision 7. See [Abandoned Dead v1.9 release notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md) for QC status and in-app validation tasks. **Do not assume in-app import/export or competitive points balance have been verified.**
 
 ## Known limitations
 
@@ -36,3 +36,7 @@ Real native Leader joins, cross-vehicle passenger accounting, and board timing c
 ## Receiving updates and avoiding duplicate game entries
 
 GitHub-installed games under **MySystems > Add from GitHub** receive updates automatically as New Recruit refreshes the source. On mobile, use **Menu > Manage Games** to inspect your sources; if old data persists, restart/reopen New Recruit while online. Manually uploaded `.cat`/`.gst` files are not linked to GitHub updates. If you see both a current Abandoned Dead choice and an old placeholder, the GitHub repository no longer contains the placeholder: back up rosters, then remove only the old manually installed game/source from MySystems. Do not delete saved lists or the current GitHub source to force an update.
+
+### Vephar v1.9 Chapter Master (playtest)
+
+Vephar has five activated battle abilities, his signature halberd, two mutually exclusive ranged choices, and a provisional 220-point cost. The shared game-system and Infernal Warriors are unchanged. Read [v1.9 notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md) for limitations.
