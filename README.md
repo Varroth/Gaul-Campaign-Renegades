@@ -1,6 +1,6 @@
-# Gaul Campaign: Renegades — Infernal Warriors v2.5.2 + Abandoned Dead v1.9
+# Gaul Campaign: Renegades — Infernal Warriors, Abandoned Dead & Frozen Cogs
 
-**Homebrew Warhammer 40,000 army-builder data** for New Recruit / BattleScribe. Contains the playable Infernal Warriors and Abandoned Dead, plus clearly marked future placeholders for Frozen Cogs and Silver Tempest.
+**Homebrew Warhammer 40,000 army-builder data** for New Recruit / BattleScribe. Contains playable Infernal Warriors, Abandoned Dead and Frozen Cogs catalogues. Silver Tempest remains a future placeholder.
 
 ## Installation from downloaded ZIP
 
@@ -40,3 +40,7 @@ GitHub-installed games under **MySystems > Add from GitHub** receive updates aut
 ### Vephar, the Uncrowned Sovereign — Chapter Master (v1.9 playtest)
 
 Vephar's canonical epithet is **the Uncrowned Sovereign**; his formal rank remains Chapter Master. Vephar has five activated battle abilities, his signature halberd, two mutually exclusive ranged choices, and a provisional 220-point cost. The shared game-system and Infernal Warriors are unchanged. Read [v1.9 notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md) for limitations.
+
+## Frozen Cogs v2.3
+
+The former in-development listing has been replaced by the playable **Frozen Cogs Expeditionary Force** (164 roster entries). See [Frozen Cogs release notes](FROZEN_COGS_RELEASE_NOTES_v2_3.md). Points remain provisional. Native New Recruit import and certain cross-unit weapon, Leader and transport restrictions require additional acceptance testing.
