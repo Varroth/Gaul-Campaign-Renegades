@@ -2,7 +2,7 @@
 
 **Published as a Vephar-only update** to the existing 59-entry Abandoned Dead catalogue, under Gaul Campaign: Renegades game-system revision 7. All other 58 Abandoned Dead units, Infernal Warriors, and Frozen Cogs data remain unchanged.
 
-**Canonical title:** Vephar, the Uncrowned Sovereign. His formal office remains Chapter Master; historical "Chaos Lord" references are not his current title.
+**Canonical title:** Vephar, the Uncrowned Sovereign. His formal office remains Chapter Master; historical "Chaos Lord" references are not his current title. The live `Abandoned_Dead.cat` selection entry and unit profile were renamed without changing their IDs, wargear, abilities, or points.
 
 ## Approved Chapter Master kit and profile
 - Vephar is openly recognized by his captains, Triarchate, and Elias Veyr. Alpha Legion / Alpharius-inspired external deception, not internal confusion.
