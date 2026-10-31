@@ -1,10 +1,17 @@
-# Publish a New Recruit GitHub data repository
+# Gaul Campaign: Renegades — New Recruit GitHub updates
 
-1. Create a GitHub repository that you control, or provide its `owner/repository` name to the publishing assistant when the GitHub connection offers write actions.
-2. Put `Gaul_Campaign_Renegades.gst` and the four `.cat` files **at the top level**, as they are in this folder. Commit them to the repository's default branch.
-3. Open New Recruit > **MySystems > Add from GitHub** and enter your `owner/repository` name. Confirm.
-4. For future updates, replace only the relevant `.gst`/`.cat` files with vetted new versions and commit. New Recruit pulls newer data automatically.
+**Published repository:** https://github.com/Varroth/Gaul-Campaign-Renegades
 
-**Publishing status: NOT PUBLISHED**. The local files and repository-ready ZIP alone do not create a GitHub repository, and installing a GitHub connector by itself does not select a destination repository or authorize any particular write.
+Install using New Recruit > MySystems > Add from GitHub, with `Varroth/Gaul-Campaign-Renegades`. Do not import individual files if you want repository-linked updates.
 
-Reference: https://www.newrecruit.eu/tutorials/data
+## How updates are published
+
+The game system (`Gaul_Campaign_Renegades.gst`) and four catalogues (`*.cat`) live in the repository root on `main`. The catalogue's own `revision` must increase whenever that catalogue changes; the `gameSystemRevision` must match the shared game system's revision. Preserve all existing system, catalogue, unit and option IDs to protect saved rosters.
+
+The workflow `.github/workflows/new-recruit-revisions.yml` runs `scripts/sync_new_recruit_revisions.py` on relevant pushes. It detects catalogue changes that lack a revision increase, repairs stale game-system revision references, validates XML, and commits metadata repairs. The workflow requires **GitHub Actions enabled** and permission to write repository contents (Settings > Actions > General > Workflow permissions). If Actions are disabled or blocked, the workflow will not execute; run it manually from the Actions tab or run the Python script locally before publishing.
+
+A GitHub commit alone does not prove that New Recruit has refreshed its local cache. Check New Recruit's installed source, refresh/reopen while online, and verify the displayed catalogue revision. Back up rosters before troubleshooting; do not delete saved rosters.
+
+## Compatibility and limitations
+
+The maintenance script only edits root-tag version metadata, not unit profiles, points, options, IDs or rules. It does not prove in-app New Recruit refresh behavior, which requires a real-device test. No `.bsi` index is required for the New Recruit Add from GitHub installation path.
