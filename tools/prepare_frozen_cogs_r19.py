@@ -58,7 +58,11 @@ for unit_name,label,options,limit in rules:
         if model.get("type")!="model":continue
         for weapon in model.iter(q("selectionEntry")):
             if weapon.get("type")!="upgrade" or weapon.get("name") not in options:continue
-            links=child(weapon,"categoryLinks")
+            links=weapon.find(q("categoryLinks"))
+            if links is None:
+                links=ET.Element(q("categoryLinks"))
+                profile=weapon.find(q("profiles"))
+                weapon.insert(list(weapon).index(profile) if profile is not None else len(weapon),links)
             ET.SubElement(links,q("categoryLink"),{"id":uid(unit_name+"/"+label+"/"+weapon.get("id")),"name":category.get("name"),"targetId":cat_id,"hidden":"false","primary":"false"})
             found+=1
     assert found>0,(unit_name,label)
