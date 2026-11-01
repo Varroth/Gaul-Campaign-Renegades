@@ -8,6 +8,8 @@ on:
       - '.github/workflows/new-recruit-revisions.yml'
       - 'scripts/sync_new_recruit_revisions.py'
       - 'scripts/clean_catalogue_labels.py'
+      - 'scripts/repair_frozen_cogs_roster.py'
+      - 'scripts/audit_frozen_cogs_roster.py'
       - 'scripts/audit_new_recruit.py'
   workflow_dispatch:
 permissions:
@@ -26,6 +28,8 @@ jobs:
           persist-credentials: true
       - name: Clean catalogue labels
         run: python3 scripts/clean_catalogue_labels.py
+      - name: Repair Frozen Cogs category labels and weapon profiles
+        run: python3 scripts/repair_frozen_cogs_roster.py
       - name: Normalize catalogue revisions
         run: python3 scripts/sync_new_recruit_revisions.py
       - name: Validate XML and references
@@ -44,12 +48,16 @@ jobs:
           PY
       - name: Audit catalogues and produce QC report
         run: python3 scripts/audit_new_recruit.py --report new-recruit-qc.json
+      - name: Audit Frozen Cogs model selections and weapon modes
+        run: python3 scripts/audit_frozen_cogs_roster.py --report frozen-cogs-qc.json
       - name: Upload QC report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: new-recruit-qc
-          path: new-recruit-qc.json
+          path: |
+            new-recruit-qc.json
+            frozen-cogs-qc.json
           if-no-files-found: warn
       - name: Commit metadata fixes if necessary
         run: |
