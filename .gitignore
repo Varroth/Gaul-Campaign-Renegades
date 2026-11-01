@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+new-recruit-qc.json
+frozen-cogs-qc.json
+repository-qc.json

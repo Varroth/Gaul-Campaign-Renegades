@@ -99,6 +99,14 @@ def inspect():
                     unknown[attr] += 1
         if unknown:
             warnings.append(f"{name}: unresolved reference candidates {dict(unknown)} (may be external/built-in)")
+    # Include strict collection/default/reference checks; XML parsing alone is insufficient.
+    try:
+        from .check_repository import inspect as strict_inspect
+    except ImportError:
+        from check_repository import inspect as strict_inspect
+    strict_errors, strict_warnings, _ = strict_inspect(ROOT)
+    errors.extend(strict_errors)
+    warnings.extend(strict_warnings)
     return errors, warnings, inventory
 
 def main():

@@ -1,46 +1,43 @@
-# Gaul Campaign: Renegades — Infernal Warriors, Abandoned Dead & Frozen Cogs
+# Gaul Campaign: Renegades
 
-**Homebrew Warhammer 40,000 army-builder data** for New Recruit / BattleScribe. Contains playable Infernal Warriors, Abandoned Dead and Frozen Cogs catalogues. Silver Tempest has no selectable units.
+Homebrew Warhammer 40,000 data for **New Recruit**: Infernal Warriors, Frozen Cogs and Abandoned Dead. Silver Tempest is an empty reserved catalogue.
 
-## Installation from downloaded ZIP
+## Install and receive updates
 
-1. Extract this ZIP.
-2. Back up any existing `.ros` rosters from the previous version.
-3. Open [New Recruit](https://www.newrecruit.eu/app) > **MySystems**.
-4. Import `Gaul_Campaign_Renegades.gst` and the four `.cat` files from the extracted directory. Replace or refresh the earlier local dataset as needed.
-5. Select **Gaul Campaign: Renegades > Infernal Warriors** to verify your existing army, or **Abandoned Dead Task Force** to build an Abandoned Dead army.
+[Install from GitHub in New Recruit](https://www.newrecruit.eu/app/MySystems?addSystem=Varroth%2FGaul-Campaign-Renegades&ref=HEAD), or use **MySystems → Add from GitHub**, enter `Varroth/Gaul-Campaign-Renegades`, and select **Latest Commit (Head)**.
 
-## GitHub-based updates
+The five `.gst`/`.cat` files at the repository root on `main` are the live dataset. GitHub installations are eligible for New Recruit's automatic updates. Local file imports are not GitHub subscriptions. The install link does not force a refresh of an already installed copy.
 
-The five importable files are also in the **root** of this repository-ready package. If you publish them in the root of a GitHub repository, New Recruit can import that repository via **MySystems > Add from GitHub**, specifying `owner/repository` or the repository URL. Updates committed to that same repository are picked up automatically by New Recruit. You do not need to publish GitHub Releases or manually assemble a `.bsi` index for this New Recruit workflow.
+Use the app's update/refresh action, then reopen it online. Compare the installed catalogue revision with [catalogue-manifest.json](catalogue-manifest.json). Avoid duplicate local installations; back up saved rosters before removing any source. Do not delete lists to troubleshoot an update.
 
-**This repository is published.** New Recruit retrieves catalogue updates from this GitHub source when it refreshes. Avoid installing duplicate local copies of the same game system.
+## Current maintenance release — November 1, 2026
 
-## How to use this patch
+| File | Revision | Root units |
+| --- | ---: | ---: |
+| `Gaul_Campaign_Renegades.gst` | 10 | — |
+| `Abandoned_Dead.cat` | **14** | **61** |
+| `Frozen_Cogs.cat` | 19 | 164 |
+| `Infernal_Warriors.cat` | 15 | 74 |
+| `Silver_Tempest.cat` | 7 | 0 |
 
-- To declare a Leader, select the desired **individual** bodyguard squad's **LEADER — select attached character for THIS squad** menu. Also purchase the Leader unit separately and use New Recruit's native association if available.
-- To plan Bloodletter summoning, buy Bloodletters, declare legal Reserves on them, then optionally choose **Plan Invocation with this Thralls squad**. The rule remains once per army during the battle.
-- New four preset loadouts remain editable and have no extra surcharge.
-- The existing distinct Enhancement authorization system remains in place (separate approval in **01 — START HERE** followed by buying the upgrade on the unit).
-- To run additional offline warnings and get an organized printable roster, export uncompressed `.ros` XML and open `ROSTER_FIELD_CHECK.html` in your browser, then choose the `.ros` file. No data is uploaded.
+This table describes the maintenance release. The generated manifest is authoritative after later updates.
 
+Abandoned Dead r14 merges duplicate XML equipment/rule containers and moves the two Nullifier units out of the Shadow Gunship equipment menu into the army list. All pre-existing IDs, points, profiles, weapon choices and rule text are retained. The four reported squads have complete default model/weapon paths in static tests, including both five- and ten-model configurations. See [the audit and remaining limitations](docs/MAINTENANCE_2026-11-01.md).
 
-## Abandoned Dead — catalogue revision 13 (homebrew)
+**Nullifier limitation:** the approved fixed loadouts have no approved numeric weapon profiles. The units remain selectable with their existing costs and rules, but are not complete gameplay datasheets. Their attachment restrictions and Psychic weapon interactions remain manual. No statistics have been invented in this maintenance release.
 
-Abandoned Dead is a playable 59-unit catalogue with integrated Astartes, Directorate, covert, and cultist forces under one Abandoned Dead faction. The current catalogue is **revision 13** and references **game-system revision 10**. Vephar's v1.9 update remains documented in [the earlier release notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md); those notes are historical and their revision 7 reference is superseded. Approved strategic doctrines 28–30 are included as non-mechanical reference rules. Revision 13 adds preliminary Nullifier Operator and Nullifier Interdiction Team entries and adds weapon-visibility guidance for Unmarked Scouts, Blackout Breachers, Directorate Breach Cell, and Shadow Operative Cell; New Recruit display and attachment behavior are **not yet validated**. See the [2026-11-01 strategic synchronization and outstanding QA report](ABANDONED_DEAD_STRATEGIC_SYNC_2026_11_01.md). **New Recruit import/export, automatic refresh, all 30 doctrine implementations, and competitive points balance have not been fully verified.**
+## Repository layout
 
-## Known limitations
+- Root `.gst` and `.cat`: live New Recruit source, with stable filenames and IDs.
+- `catalogue-manifest.json`: generated revisions, unit counts and SHA-256 hashes; diagnostic metadata, not a New Recruit update index.
+- `scripts/`: repository audits and revision maintenance.
+- `tools/`: Frozen Cogs structural/exported-roster checks.
+- `tests/`: regression tests, including the Abandoned Dead visibility defects.
+- `docs/`: current maintenance findings; `docs/archive/` preserves earlier release notes, reports and reference tables. Archived versions are historical, not current release claims.
+- `ROSTER_FIELD_CHECK.html`: optional offline Infernal Warriors exported-roster helper; not a New Recruit integration test.
 
-Real native Leader joins, cross-vehicle passenger accounting, and board timing cannot be fully enforced with the existing XML selections. In-app testing remains necessary. Review `QC_REPORT_v2_5_2.md` for details, including manual validation cases.
+## Maintainers
 
-## Receiving updates and avoiding duplicate game entries
+See [publishing and validation](GITHUB_SETUP.md). Every push to `main` validates all catalogues; pull requests run read-only checks. Revision maintenance changes metadata only. Completed one-off r18/r19 release publishers have been retired.
 
-GitHub-installed games under **MySystems > Add from GitHub** receive updates automatically as New Recruit refreshes the source. On mobile, use **Menu > Manage Games** to inspect your sources; if old data persists, restart/reopen New Recruit while online. Manually uploaded `.cat`/`.gst` files are not linked to GitHub updates. If you see duplicate Abandoned Dead choices, the repository contains only the current catalogue: back up rosters, then remove only the old manually installed game/source from MySystems. Do not delete saved lists or the current GitHub source to force an update.
-
-### Vephar, the Uncrowned Sovereign — Chapter Master (v1.9 homebrew)
-
-Vephar's canonical epithet is **the Uncrowned Sovereign**; his formal rank remains Chapter Master. His selectable unit and profile names in `Abandoned_Dead.cat` now use **Vephar, the Uncrowned Sovereign**. Vephar has five activated battle abilities, his signature halberd, two mutually exclusive ranged choices, and a homebrew 220-point cost. The shared game-system and Infernal Warriors are unchanged. Read [v1.9 notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md) for limitations.
-
-## Frozen Cogs v2.3
-
-**Frozen Cogs Expeditionary Force** contains 164 roster entries. See [Frozen Cogs release notes](FROZEN_COGS_RELEASE_NOTES_v2_3.md). Points remain homebrew. Native New Recruit import and certain cross-unit weapon, Leader and transport restrictions require additional acceptance testing.
+GitHub validation does not prove that a particular device has refreshed, that every native attachment/quota works, or that homebrew points are balanced. New Recruit acceptance remains a separate real-app test. Unified Forces remains the shared standing alliance option; this maintenance does not alter lore or army rules.

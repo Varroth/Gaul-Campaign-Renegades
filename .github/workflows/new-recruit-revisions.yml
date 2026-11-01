@@ -2,15 +2,6 @@ name: Validate and synchronize New Recruit revisions
 on:
   push:
     branches: [main]
-    paths:
-      - '**.gst'
-      - '**.cat'
-      - '.github/workflows/new-recruit-revisions.yml'
-      - 'scripts/sync_new_recruit_revisions.py'
-      - 'scripts/clean_catalogue_labels.py'
-      - 'scripts/repair_frozen_cogs_roster.py'
-      - 'scripts/audit_frozen_cogs_roster.py'
-      - 'scripts/audit_new_recruit.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -18,54 +9,49 @@ concurrency:
   group: new-recruit-revisions-main
   cancel-in-progress: false
 jobs:
-  normalize:
+  validate-and-publish:
     if: github.repository == 'Varroth/Gaul-Campaign-Renegades'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
-          persist-credentials: true
-      - name: Clean catalogue labels
-        run: python3 scripts/clean_catalogue_labels.py
-      - name: Repair Frozen Cogs category labels and weapon profiles
-        run: python3 scripts/repair_frozen_cogs_roster.py
-      - name: Normalize catalogue revisions
-        run: python3 scripts/sync_new_recruit_revisions.py
-      - name: Validate XML and references
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Normalize revision metadata
+        env:
+          BEFORE: ${{ github.event.before }}
         run: |
-          python3 - <<'PY'
-          import xml.etree.ElementTree as ET
-          from pathlib import Path
-          root = ET.parse('Gaul_Campaign_Renegades.gst').getroot()
-          sid, rev = root.attrib['id'], root.attrib['revision']
-          for path in Path('.').glob('*.cat'):
-              cat = ET.parse(path).getroot()
-              assert cat.attrib['gameSystemId'] == sid, path
-              assert cat.attrib['gameSystemRevision'] == rev, path
-              assert int(cat.attrib['revision']) >= 1, path
-              print(f"{path}: catalogue revision {cat.attrib['revision']}, system revision {rev}")
-          PY
-      - name: Audit catalogues and produce QC report
-        run: python3 scripts/audit_new_recruit.py --report new-recruit-qc.json
-      - name: Audit Frozen Cogs model selections and weapon modes
-        run: python3 scripts/audit_frozen_cogs_roster.py --report frozen-cogs-qc.json
-      - name: Upload QC report
+          python scripts/sync_new_recruit_revisions.py --base "${BEFORE:-HEAD^}"
+      - name: Validate every catalogue and generate release manifest
+        run: |
+          python scripts/check_repository.py --write-manifest --report repository-qc.json
+          python scripts/audit_new_recruit.py --report new-recruit-qc.json
+          python scripts/audit_frozen_cogs_roster.py --report frozen-cogs-qc.json
+          python tools/qc_frozen_cogs.py
+          python -m unittest discover -s tests -v
+      - name: Upload audit evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: new-recruit-qc
+          name: repository-qc
           path: |
+            repository-qc.json
             new-recruit-qc.json
             frozen-cogs-qc.json
           if-no-files-found: warn
-      - name: Commit metadata fixes if necessary
+      - name: Publish validated metadata only
         run: |
-          if ! git diff --quiet -- '*.cat' '*.gst'; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -- '*.cat' '*.gst'
-            git commit -m "chore: synchronize New Recruit catalogue revisions [skip ci]"
-            git pull --rebase origin main
-            git push
+          git add -- '*.cat' '*.gst' catalogue-manifest.json
+          if git diff --cached --quiet; then
+            echo "All published metadata is current."
+            exit 0
           fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: synchronize validated New Recruit metadata"
+          # A normal fast-forward push fails safely if another author has pushed.
+          # Never rebase already-validated XML onto untested changes.
+          git push origin HEAD:main

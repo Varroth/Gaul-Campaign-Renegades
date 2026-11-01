@@ -1,111 +1,87 @@
 #!/usr/bin/env python3
-"""Normalize BattleScribe/New Recruit revision metadata without changing catalogue IDs or rules."""
+"""Synchronize only root revision metadata against an explicit Git baseline.
+
+Local/pre-commit use: --base HEAD. CI uses the pre-push SHA, covering every
+commit in a push. No unit, weapon, rule, label or import changes happen here.
+"""
+import argparse
 from pathlib import Path
 import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-GST = ROOT / "Gaul_Campaign_Renegades.gst"
-CATS = sorted(ROOT.glob("*.cat"))
 
-def previous(path):
-    try:
-        return subprocess.check_output(
-            ["git", "show", f"HEAD^:{path.name}"], cwd=ROOT, stderr=subprocess.DEVNULL
-        ).decode("utf-8")
-    except (subprocess.CalledProcessError, UnicodeDecodeError):
-        return None
-
-def root_tag(s, kind):
-    m = re.search(r"<" + kind + r"\b[^>]*>", s)
-    if not m:
-        raise ValueError(f"Missing {kind} root")
-    return m.group()
+def root_tag(source, kind):
+    match = re.search(r'<' + kind + r'\b[^>]*>', source)
+    if not match:
+        raise ValueError(f'Missing {kind} root')
+    return match.group()
 
 def attr(tag, name):
-    m = re.search(r"\b" + name + r'="([^"]*)"', tag)
-    if not m:
-        raise ValueError(f"Missing {name}")
-    return m.group(1)
+    match = re.search(r'\b' + name + r'="([^"]*)"', tag)
+    if not match:
+        raise ValueError(f'Missing {name}')
+    return match.group(1)
 
 def replace_attr(tag, name, value):
-    if not re.search(r"\b" + name + r'="[^"]*"', tag):
-        raise ValueError(f"Missing {name}")
-    return re.sub(r"\b" + name + r'="[^"]*"', name + '="' + str(value) + '"', tag, count=1)
+    attr(tag, name)
+    return re.sub(r'\b' + name + r'="[^"]*"', f'{name}="{value}"', tag, count=1)
 
-def update(path, kind, target_system_rev=None):
-    source = path.read_text(encoding="utf-8")
-    tag = root_tag(source, kind)
-    old_source = previous(path)
-    old_tag = root_tag(old_source, kind) if old_source else None
-    revision = int(attr(tag, "revision"))
-    new_tag = tag
-    # When file content changes without a revision increase, increase it once.
-    if old_source is not None and source != old_source and old_tag:
-        old_revision = int(attr(old_tag, "revision"))
-        if revision <= old_revision:
-            new_tag = replace_attr(new_tag, "revision", old_revision + 1)
-    if target_system_rev is not None and attr(new_tag, "gameSystemRevision") != str(target_system_rev):
-        # A metadata-only change also needs a catalogue revision bump to be discoverable.
-        if new_tag == tag:
-            new_tag = replace_attr(new_tag, "revision", revision + 1)
-        new_tag = replace_attr(new_tag, "gameSystemRevision", target_system_rev)
-    if new_tag != tag:
-        path.write_text(source.replace(tag, new_tag, 1), encoding="utf-8")
-        print(f"Updated {path.name}: {attr(tag, 'revision')} -> {attr(new_tag, 'revision')}")
-        return True
-    print(f"Already current: {path.name}")
-    return False
+def previous(directory, base, name):
+    # A valid baseline with a new file is different from a missing Git baseline.
+    found = subprocess.run(['git', 'cat-file', '-e', f'{base}:{name}'], cwd=directory,
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    if found.returncode:
+        return None
+    return subprocess.check_output(['git', 'show', f'{base}:{name}'], cwd=directory).decode('utf-8')
 
-
-def ensure_frozen_cogs_root_imports():
-    """Expose every Frozen Cogs root unit in New Recruit's selectable unit list.
-
-    The original generated catalogue omitted import="true" on all 164 root
-    selectionEntry nodes. Other catalogues explicitly mark their root units
-    importable. Patch only Frozen Cogs unit opening tags and leave every
-    equipment choice, unit ID and profile untouched.
-    """
-    path = ROOT / "Frozen_Cogs.cat"
-    if not path.exists():
-        return
-    source = path.read_text(encoding="utf-8")
-    pattern = re.compile(r'<selectionEntry\b[^>]*\btype="unit"[^>]*>')
-    matches = pattern.findall(source)
-    if len(matches) < 100:
-        raise ValueError(f"Frozen Cogs catalogue exposes only {len(matches)} root units")
-
-    def mark_importable(match):
-        tag = match.group(0)
-        if re.search(r'\bimport="true"', tag):
-            return tag
-        if re.search(r'\bimport="false"', tag):
-            return re.sub(r'\bimport="false"', 'import="true"', tag, count=1)
-        return tag[:-1] + ' import="true">'
-
-    updated = pattern.sub(mark_importable, source)
-    if updated != source:
-        path.write_text(updated, encoding="utf-8")
-        print(f"Restored import=true for {len(matches)} Frozen Cogs root units")
-    else:
-        print(f"Frozen Cogs root unit import flags already valid ({len(matches)})")
+def normalize(directory=ROOT, base='HEAD', check=False):
+    if not re.fullmatch('0{40,64}', base):
+        subprocess.run(['git', 'rev-parse', '--verify', f'{base}^{{commit}}'], cwd=directory,
+                       stdout=subprocess.DEVNULL, check=True)
+    paths = [directory/'Gaul_Campaign_Renegades.gst'] + sorted(directory.glob('*.cat'))
+    if len(paths) < 2:
+        raise ValueError('Expected a game system and catalogues')
+    updates = {}
+    system_id = system_revision = None
+    for path in paths:
+        kind = 'gameSystem' if path.suffix == '.gst' else 'catalogue'
+        source = path.read_text(encoding='utf-8')
+        old = None if re.fullmatch('0{40,64}', base) else previous(directory, base, path.name)
+        tag = root_tag(source, kind)
+        new_tag = tag
+        if kind == 'catalogue':
+            if attr(tag, 'gameSystemId') != system_id:
+                raise ValueError(f'{path.name}: wrong gameSystemId')
+            new_tag = replace_attr(new_tag, 'gameSystemRevision', system_revision)
+        revision = int(attr(tag, 'revision'))
+        candidate = source.replace(tag, new_tag, 1)
+        if old is not None and candidate != old:
+            old_revision = int(attr(root_tag(old, kind), 'revision'))
+            revision = max(revision, old_revision + 1)
+        elif candidate != source:
+            revision += 1
+        if revision < 1:
+            raise ValueError(f'{path.name}: revision must be positive')
+        new_tag = replace_attr(new_tag, 'revision', revision)
+        updated = source.replace(tag, new_tag, 1)
+        if kind == 'gameSystem':
+            system_id, system_revision = attr(new_tag, 'id'), revision
+        if updated != source:
+            updates[path] = updated
+    if not check:
+        for path, updated in updates.items():
+            path.write_text(updated, encoding='utf-8')
+    return [p.name for p in updates]
 
 def main():
-    if not GST.exists():
-        raise SystemExit("Missing game system")
-    update(GST, "gameSystem")
-    ensure_frozen_cogs_root_imports()
-    system_source = GST.read_text(encoding="utf-8")
-    system_tag = root_tag(system_source, "gameSystem")
-    system_id = attr(system_tag, "id")
-    system_rev = int(attr(system_tag, "revision"))
-    if not CATS:
-        raise SystemExit("No catalogues found")
-    for cat in CATS:
-        tag = root_tag(cat.read_text(encoding="utf-8"), "catalogue")
-        if attr(tag, "gameSystemId") != system_id:
-            raise SystemExit(f"Wrong gameSystemId in {cat.name}")
-        update(cat, "catalogue", system_rev)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--base', default='HEAD', help='Pre-change commit; CI passes pre-push SHA')
+    parser.add_argument('--check', action='store_true', help='Fail instead of writing needed repairs')
+    args = parser.parse_args()
+    changed = normalize(base=args.base, check=args.check)
+    print(('Revision repairs required: ' if args.check else 'Revisions updated: ') + ', '.join(changed) if changed else 'Revision metadata is current')
+    raise SystemExit(bool(changed) if args.check else 0)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
