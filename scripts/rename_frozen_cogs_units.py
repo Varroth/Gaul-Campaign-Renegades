@@ -22,9 +22,6 @@ for a, b in zip(old_entries, new_entries):
         changes.append((a.attrib["name"], b.attrib["name"]))
 assert len(changes) == count, "Rename count mismatch"
 # All changes must be limited to the selectionEntry name attributes.
-restored = after
-for old_name, new_name in reversed(changes):
-    pass
 assert old.attrib["id"] == new.attrib["id"]
 if after != before:
     path.write_text(after, encoding="utf-8")
