@@ -1,5 +1,6 @@
 name: Frozen Cogs editorial cleanup
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
