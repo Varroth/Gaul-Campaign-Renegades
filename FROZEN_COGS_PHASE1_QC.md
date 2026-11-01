@@ -45,3 +45,19 @@ This branch intentionally avoids rewriting the 5.9 MB catalogue without exhausti
 **Next implementation gate:** Build native cross-model aggregate checks (or an accurate external validator where BattleScribe semantics cannot enforce them) and test representative legal/illegal loadouts before modifying the large catalogue. Preserve all current option names, IDs, point values, profiles and squad rules. Do not conflate a per-model `parent` max with a unit-wide quota.
 
 **Caution:** This is a structural inspection, not a successful New Recruit import or an executed GitHub Actions run.
+
+## Supplementary exported-roster validation delivered
+
+- `tools/qc_frozen_cogs_roster.py` reads **uncompressed .ros XML** and checks the six baseline squad sizes (5–10) and mandatory leader models.
+- Tactical: one special per complete five models, one heavy per complete ten models; sergeant excluded.
+- Devastator: four heavy weapons per squad; sergeant excluded.
+- `tests/test_frozen_cogs_roster.py` includes five synthetic Tactical roster cases (legal and illegal). CI is configured to run these.
+- **Limitations:** no native New Recruit quota enforcement has been added, remaining specialist quota families are not mapped, no real New Recruit export has been validated, and no GitHub Actions execution was observed at last check. The Python checker is an interim external safeguard, not a claim of complete Evolving Arsenal validation.
+
+## Shared equipment definition audit
+
+The six sampled units embed their own weapon profiles under per-model upgrade entries. A shared-profile refactor would affect a large number of existing identifiers and exported descriptions, so it is **deferred pending proven equivalence**. No rules or profiles have been rewritten.
+
+## Release gate
+
+Keep PR #4 in draft. Do not claim full completion of A–E until native roster acceptance tests, per-five/per-ten enforcement for all affected units, and GitHub-source refresh tests pass. Merge should follow those checks, not precede them.
