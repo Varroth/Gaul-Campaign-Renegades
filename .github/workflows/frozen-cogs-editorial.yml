@@ -1,0 +1,41 @@
+name: Frozen Cogs editorial cleanup
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/publish_frozen_cogs_editorial.py
+permissions:
+  contents: write
+concurrency:
+  group: new-recruit-revisions-main
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'Varroth/Gaul-Campaign-Renegades'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply editorial cleanup
+        run: python scripts/publish_frozen_cogs_editorial.py
+      - name: Validate and synchronize
+        run: |
+          python scripts/sync_new_recruit_revisions.py --base HEAD
+          python scripts/check_repository.py --write-manifest
+          python scripts/audit_new_recruit.py
+          python scripts/audit_frozen_cogs_roster.py
+          python tools/qc_frozen_cogs.py
+          python -m unittest discover -s tests -v
+      - name: Commit validated catalogue
+        run: |
+          git add Frozen_Cogs.cat catalogue-manifest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Polish Frozen Cogs ability text and remove development notices"
+          git push origin HEAD:main
