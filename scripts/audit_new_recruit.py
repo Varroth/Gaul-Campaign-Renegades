@@ -64,7 +64,7 @@ def inspect():
             visible_xml = ET.tostring(root, encoding="unicode").lower()
             old_labels = [
                 label for label in PLAYER_LABELS
-                if re.search(r"\\b" + re.escape(label) + r"\\b", visible_xml)
+                if re.search(r"\b" + re.escape(label) + r"\b", visible_xml)
             ]
             if old_labels:
                 errors.append(f"{name}: old roster-status wording remains: {old_labels}")
