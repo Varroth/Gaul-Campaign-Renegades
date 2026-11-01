@@ -1,6 +1,6 @@
 # Abandoned Dead v1.8 — New Recruit weapon visibility and abilities hotfix
 
-**Homebrew playtest.** Target: the published `Varroth/Gaul-Campaign-Renegades` repository and existing Gaul Campaign game-system revision **7** (`0408-b3dc-97f0-53dc`). The Abandoned Dead catalogue revision is **4**. No changes to `Infernal_Warriors.cat` or `Gaul_Campaign_Renegades.gst` are required.
+**homebrew.** Target: the published `Varroth/Gaul-Campaign-Renegades` repository and existing Gaul Campaign game-system revision **7** (`0408-b3dc-97f0-53dc`). The Abandoned Dead catalogue revision is **4**. No changes to `Infernal_Warriors.cat` or `Gaul_Campaign_Renegades.gst` are required.
 
 ## Problem identified
 
