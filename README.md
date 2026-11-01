@@ -25,9 +25,9 @@ The five importable files are also in the **root** of this repository-ready pack
 - To run additional offline warnings and get an organized printable roster, export uncompressed `.ros` XML and open `ROSTER_FIELD_CHECK.html` in your browser, then choose the `.ros` file. No data is uploaded.
 
 
-## Abandoned Dead — catalogue revision 12 (homebrew)
+## Abandoned Dead — catalogue revision 13 (homebrew)
 
-Abandoned Dead is a playable 59-unit catalogue with integrated Astartes, Directorate, covert, and cultist forces under one Abandoned Dead faction. The current catalogue is **revision 12** and references **game-system revision 10**. Vephar's v1.9 update remains documented in [the earlier release notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md); those notes are historical and their revision 7 reference is superseded. Approved strategic doctrines 28–30 are now included as non-mechanical reference rules. See the [2026-11-01 strategic synchronization and outstanding QA report](ABANDONED_DEAD_STRATEGIC_SYNC_2026_11_01.md). **New Recruit import/export, automatic refresh, all 30 doctrine implementations, and competitive points balance have not been fully verified.**
+Abandoned Dead is a playable 59-unit catalogue with integrated Astartes, Directorate, covert, and cultist forces under one Abandoned Dead faction. The current catalogue is **revision 13** and references **game-system revision 10**. Vephar's v1.9 update remains documented in [the earlier release notes](ABANDONED_DEAD_RELEASE_NOTES_v1_9.md); those notes are historical and their revision 7 reference is superseded. Approved strategic doctrines 28–30 are included as non-mechanical reference rules. Revision 13 adds preliminary Nullifier Operator and Nullifier Interdiction Team entries and adds weapon-visibility guidance for Unmarked Scouts, Blackout Breachers, Directorate Breach Cell, and Shadow Operative Cell; New Recruit display and attachment behavior are **not yet validated**. See the [2026-11-01 strategic synchronization and outstanding QA report](ABANDONED_DEAD_STRATEGIC_SYNC_2026_11_01.md). **New Recruit import/export, automatic refresh, all 30 doctrine implementations, and competitive points balance have not been fully verified.**
 
 ## Known limitations
 
