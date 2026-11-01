@@ -1,4 +1,4 @@
-# Abandoned Dead — compatible New Recruit playtest catalogue v1.7
+# Abandoned Dead — compatible New Recruit homebrew catalogue v1.7
 
 **System:** Gaul Campaign: Renegades (GitHub game-system ID `0408-b3dc-97f0-53dc`, revision 7).
 
@@ -15,7 +15,7 @@
 
 **Pass:** XML tree structure and uniqueness of catalogue IDs, root catalogue/system/revision identifiers, 59 unit entries, 1,533 weapon profiles, 13 invulnerable abilities, existing cost/characteristic type references, categories and root force categories.
 
-**Not established:** a live New Recruit roster editor import, exported `.ros` validation, fully engine-enforced cross-unit Leader attachments or transport passenger counts, or battle-tested points. These are still **homebrew playtest** data; do not present as finalized competitive balance.
+**Not established:** a live New Recruit roster editor import, exported `.ros` validation, fully engine-enforced cross-unit Leader attachments or transport passenger counts, or battle-tested points. These are still **homebrew** data; do not present as finalized competitive balance.
 
 ## In New Recruit
 
