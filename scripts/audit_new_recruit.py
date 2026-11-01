@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 NS = "{http://www.battlescribe.net/schema/"
 REF_ATTRS = ("targetId", "typeId", "defaultSelectionEntryId")
 COST_TAGS = {"cost", "costLimit"}
+PLAYER_LABELS = ("provisional", "draft", "playtest", "in development", "in-development")
 PROFILE_TAGS = {"profile", "profileType", "characteristic", "characteristicType"}
 def local(tag):
     return tag.rsplit("}", 1)[-1]
@@ -59,6 +60,14 @@ def inspect():
                     f"(examples: {not_importable[:5]})"
                 )
         if name.endswith(".cat"):
+            import re
+            visible_xml = ET.tostring(root, encoding="unicode").lower()
+            old_labels = [
+                label for label in PLAYER_LABELS
+                if re.search(r"\\b" + re.escape(label) + r"\\b", visible_xml)
+            ]
+            if old_labels:
+                errors.append(f"{name}: old roster-status wording remains: {old_labels}")
             if local(root.tag) != "catalogue":
                 errors.append(f"{name}: not a catalogue root")
             if root.get("gameSystemId") != sid or root.get("gameSystemRevision") != srev:
