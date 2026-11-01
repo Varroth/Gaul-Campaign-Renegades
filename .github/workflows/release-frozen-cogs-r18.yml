@@ -1,6 +1,11 @@
 name: Prepare Frozen Cogs New Recruit revision 18
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-frozen-cogs-r18.yml'
+      - 'tools/prepare_frozen_cogs_r18.py'
 permissions:
   contents: write
 jobs:
