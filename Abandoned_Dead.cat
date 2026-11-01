@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="2e5a-ada1-0de1-2026" name="Abandoned Dead" revision="16" battleScribeVersion="2.03" gameSystemId="0408-b3dc-97f0-53dc" gameSystemRevision="10" library="false" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="2e5a-ada1-0de1-2026" name="Abandoned Dead" revision="17" battleScribeVersion="2.03" gameSystemId="0408-b3dc-97f0-53dc" gameSystemRevision="10" library="false" type="catalogue">
   <selectionEntries>
     <selectionEntry id="79a3-ecef-550e-2cda" name="Vephar, the Uncrowned Sovereign" hidden="false" collective="false" import="true" type="unit">
       <categoryLinks>
@@ -5700,15 +5700,12 @@ APPROVED Infiltrators + Ghost-Nest deployment and one 9" Concealed Relocation in
         </profile>
       </profiles>
       <rules>
-        <rule id="a85a-4a6f-bbb0-c0f7" name="Unit rules / homebrew status" hidden="false">
-          <description>10th Company recruit and reconnaissance patrol
-APPROVED Stealth + Adaptive Shadowpath: during roster creation choose Infiltrators OR Scouts 6", never both. Veteran Sergeant Ghost-Sight. No advanced Ghost-Shroud.</description>
-        </rule>
-      <rule id="71424e57-bc55-5c0f-9a5b" name="Where to find weapons (v1.8)" hidden="false"><description>Open Squad Size / Personnel, then the selected size, then each named model. Five (or ten) required models and their standard weapons now populate automatically. Change each model’s Primary Weapon choice to make legal replacements; optional sixth–ninth models must be added deliberately. Equipment is charged once per selected model; do not add a second separate weapon copy.</description></rule><rule id="69866b46-9fae-5bad-8d7f" name="Unmarked Reconnaissance" hidden="false"><description>Stealth. Adaptive Shadowpath: select ONE deployment mode at army construction: Infiltrators (Ghost Entry) or Scouts 6" (Shadow Patrol), never both. Selecting either does not automatically grant Hidden.</description></rule><rule id="62c3-c1fa-75b4-d820" name="Ghost-Sight Veteran Scout Sergeant (approved)" hidden="false">
+        <rule id="a85a-4a6f-bbb0-c0f7" name="Battlefield Role" hidden="false">
+          <description>Unmarked Scouts conduct reconnaissance, infiltration and forward observation for the 10th Company. Select one Adaptive Shadowpath deployment protocol when mustering this unit.</description>
+        </rule><rule id="69866b46-9fae-5bad-8d7f" name="Unmarked Reconnaissance" hidden="false"><description>Stealth. Adaptive Shadowpath: select ONE deployment mode at army construction: Infiltrators (Ghost Entry) or Scouts 6" (Shadow Patrol), never both. Selecting either does not automatically grant Hidden.</description></rule><rule id="62c3-c1fa-75b4-d820" name="Ghost-Sight Veteran Scout Sergeant (approved)" hidden="false">
           <description>Once per your Shooting phase Sergeant selects one visible enemy; other models in squad re-roll ranged Hit rolls of 1 vs that enemy. Sergeant does not benefit.</description>
-        </rule>
-      <rule id="ad26-weapon-visibility-1" name="Weapon visibility / standard issue (v1.10)" hidden="false"><description>Standard primary weapon: Modified Boltgun. The default is equipped through each required model under Squad Size / Personnel; open the model and Primary Weapon (choose one) to see its complete selectable weapon profiles. Weapon choices are mutually exclusive and must not be counted twice. If New Recruit does not show these model selections, report the roster editor version for follow-up.</description></rule><rule id="4c55-2bb0-287f-914f" name="Faction / keyword boundary" hidden="false">
-          <description>FACTION: ABANDONED DEAD. BRANCH: ASTARTES. All share one catalogue. No automatic extra active Ghost-Shroud for mortals.</description>
+        </rule><rule id="4c55-2bb0-287f-914f" name="Chapter Allegiance" hidden="false">
+          <description>This unit belongs to the Abandoned Dead Chapter and its Astartes branch.</description>
         </rule>
       <rule id="0192a49c-9ded-5d1e-8071-a3f1a714465a" name="Faction and unit keywords" hidden="false"><description>Faction: ABANDONED DEAD. Keywords: ASTARTES, INFANTRY, BATTLELINE, SCOUT.</description></rule></rules>
       <selectionEntryGroups>
@@ -8727,21 +8724,18 @@ APPROVED Infiltrators, Stealth, veteran Sergeant Ghost-Sight. Scout Recon Auspex
         </profile>
       </profiles>
       <rules>
-        <rule id="23dc-948b-c730-e7ec" name="Unit rules / homebrew status" hidden="false">
-          <description>Void boarding and urban assaults; 3rd / 5th Company variants
-APPROVED advanced Ghost-Shroud and Sergeant Ghost-Sight. homebrew Breaching Entry: once per battle add +1 AP to melee attacks against an enemy wholly within terrain during one Fight phase.</description>
+        <rule id="23dc-948b-c730-e7ec" name="Battlefield Role" hidden="false">
+          <description>Specialist Astartes trained for voidship boarding actions and assaults against fortified positions. Blackout Breachers deploy with advanced Ghost-Shroud equipment and a Ghost-Sight Sergeant. Their battlefield abilities are detailed below.</description>
+        </rule><rule id="46cfd782-1dcf-5f44-aa32" name="Breaching Entry" hidden="false"><description>Once per battle, in the Fight phase, when this unit makes melee attacks against an enemy unit wholly within terrain, improve the Armour Penetration characteristic of those attacks by 1 until the end of that phase.</description></rule><rule id="3789-3896-65cb-8434" name="Ghost-Shroud" hidden="false">
+          <description>While this unit is Hidden, enemy units detect it within 12 inches instead of 15 inches. When this unit is exposed, it has Stealth provided it has not fired in this turn or the preceding turn and has not Advanced or Charged this turn. This ability does not itself grant Hidden.</description>
         </rule>
-      <rule id="b1758a07-86ab-5a9a-b14e" name="Where to find weapons (v1.8)" hidden="false"><description>Open Squad Size / Personnel, then the selected size, then each named model. Five (or ten) required models and their standard weapons now populate automatically. Change each model’s Primary Weapon choice to make legal replacements; optional sixth–ninth models must be added deliberately. Equipment is charged once per selected model; do not add a second separate weapon copy.</description></rule><rule id="46cfd782-1dcf-5f44-aa32" name="Breaching Entry" hidden="false"><description>once per battle add +1 AP to melee attacks against an enemy wholly within terrain during one Fight phase.</description></rule><rule id="3789-3896-65cb-8434" name="Ghost-Shroud (passive; approved)" hidden="false">
-          <description>Hidden detection 12" instead of 15". When exposed and not fired this or preceding turn and not Advanced/Charged, has Stealth. Does not automatically gain Hidden.</description>
+      <rule id="3597-8edb-8f69-c282" name="Adaptive Specialist Module" hidden="false">
+          <description>Once per battle, at the start of your opponent's Shooting phase, this unit can activate one of the following modes: Spectral Veil, while Hidden, changes its detection distance to 9 inches; or Signal Nullifier, while exposed, worsens the Ballistic Skill characteristic of ranged attacks targeting this unit by 1. Only one mode can be activated. These effects do not stack with another activation of the same module.</description>
         </rule>
-      <rule id="3597-8edb-8f69-c282" name="Adaptive Specialist Module (approved)" hidden="false">
-          <description>Once per battle, at start of opponent Shooting phase: while Hidden activate Spectral Veil for 9" Hidden detection OR while exposed activate Signal Nullifier to worsen enemy ranged BS by 1; one mode only and no stacking.</description>
-        </rule>
-      <rule id="458b-308a-002f-94dd" name="Ghost-Sight Sergeant Targeting Uplink (approved)" hidden="false">
-          <description>Once per your Shooting phase, living Sergeant chooses one enemy visible to them. Other models in own unit re-roll ranged Hit rolls of 1 vs that unit. No illegal targeting or rerolling a die twice.</description>
-        </rule>
-      <rule id="ad26-weapon-visibility-2" name="Weapon visibility / standard issue (v1.10)" hidden="false"><description>Standard primary weapon: Boarding Boltgun. The default is equipped through each required model under Squad Size / Personnel; open the model and Primary Weapon (choose one) to see its complete selectable weapon profiles. Weapon choices are mutually exclusive and must not be counted twice. If New Recruit does not show these model selections, report the roster editor version for follow-up.</description></rule><rule id="2bae-bdab-f4f1-33b9" name="Faction / keyword boundary" hidden="false">
-          <description>FACTION: ABANDONED DEAD. BRANCH: ASTARTES. All share one catalogue. No automatic extra active Ghost-Shroud for mortals.</description>
+      <rule id="458b-308a-002f-94dd" name="Ghost-Sight Targeting Uplink" hidden="false">
+          <description>Once in each of your Shooting phases, if this unit's Sergeant is on the battlefield, select one enemy unit visible to that Sergeant. Until the end of the phase, other models in this unit can re-roll Hit rolls of 1 for ranged attacks against that enemy. A dice roll cannot be re-rolled more than once.</description>
+        </rule><rule id="2bae-bdab-f4f1-33b9" name="Chapter Allegiance" hidden="false">
+          <description>This unit belongs to the Abandoned Dead Chapter and its Astartes branch.</description>
         </rule>
       <rule id="2607c8cf-074f-5503-b4f3-1e78171c3c10" name="Faction and unit keywords" hidden="false"><description>Faction: ABANDONED DEAD. Keywords: ASTARTES, INFANTRY, POWER ARMOUR.</description></rule></rules>
       <selectionEntryGroups>
@@ -8751,8 +8745,8 @@ APPROVED advanced Ghost-Shroud and Sergeant Ghost-Sight. homebrew Breaching Entr
             <constraint id="2e6a-c415-4110-a6fe" type="max" value="1" field="selections" scope="parent" shared="false" includeChildSelections="false" includeChildForces="false"/>
           </constraints>
           <selectionEntries>
-            <selectionEntry id="5d9f-6528-f206-71f0" name="Boarding" hidden="false" collective="false" import="true" type="upgrade"><rules><rule id="55b38203-8029-5b76-b1f5" name="Boarding Equipment" hidden="false"><description>Boarding configuration; uses the unit’s published Breaching Entry ability. No additional unwritten bonuses.</description></rule></rules></selectionEntry>
-            <selectionEntry id="fa35-31bd-916c-91d4" name="Urban Breach" hidden="false" collective="false" import="true" type="upgrade"><rules><rule id="381f9611-6893-5432-aef3" name="Urban Breach Equipment" hidden="false"><description>Urban breach configuration; uses the unit’s published Breaching Entry ability. No additional unwritten bonuses.</description></rule></rules></selectionEntry>
+            <selectionEntry id="5d9f-6528-f206-71f0" name="Boarding" hidden="false" collective="false" import="true" type="upgrade"><rules><rule id="55b38203-8029-5b76-b1f5" name="Boarding Configuration" hidden="false"><description>This unit is equipped for voidship boarding actions. Its Breaching Entry ability applies as normal.</description></rule></rules></selectionEntry>
+            <selectionEntry id="fa35-31bd-916c-91d4" name="Urban Breach" hidden="false" collective="false" import="true" type="upgrade"><rules><rule id="381f9611-6893-5432-aef3" name="Urban Breach Configuration" hidden="false"><description>This unit is equipped for assaults in built-up and fortified terrain. Its Breaching Entry ability applies as normal.</description></rule></rules></selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
       <selectionEntryGroup id="e5cc-5070-13d4-22a8" name="Squad Size / Personnel" hidden="false" collective="false" defaultSelectionEntryId="c770-2d4e-c6fa-971b">
@@ -26864,18 +26858,10 @@ Hold Fast: While this unit controls or contests an objective, is not Battle-shoc
         </profile>
       </profiles>
       <rules>
-        <rule id="849b-409f-ed7e-4230" name="Unit rules / homebrew status" hidden="false">
-          <description>homebrew mortal datasheet. No mandatory Guard-style officer Orders. This unit and all Astartes units belong to ONE Abandoned Dead faction.
-5–10 models; M6, T3, Sv4+, W1, Ld7+, OC1. Shotgun, ballistic shield/breach tools; up to one flamer or meltagun per five. Choose exactly one mission kit in roster editor:
-
-- Breach: once per battle, when attacking an enemy wholly in terrain, melee attacks gain +1 AP for that Fight phase.
-- Engineer: while this unit is on an objective you control and is not Battle-shocked, its total OC increases by +2; nonstacking with another total-OC bonus.
-- Demolition: once per battle in your Shooting phase, one model makes one demolition shot at a legally selected visible enemy Vehicle or Fortification within 9": BS4+, S9, AP-2, D3; this is not five independent explosives.
-
-Role: breaching, sabotage and reclamation; replaces three redundant v1.1 squad entries.</description>
-        </rule>
-      <rule id="ccb4a928-8106-5a54-a231" name="Where to find weapons (v1.8)" hidden="false"><description>Open Squad Size / Personnel, then the selected size, then each named model. Five (or ten) required models and their standard weapons now populate automatically. Change each model’s Primary Weapon choice to make legal replacements; optional sixth–ninth models must be added deliberately. Equipment is charged once per selected model; do not add a second separate weapon copy.</description></rule><rule id="ad26-weapon-visibility-3" name="Weapon visibility / standard issue (v1.10)" hidden="false"><description>Standard primary weapon: Combat Shotgun. The default is equipped through each required model under Squad Size / Personnel; open the model and Primary Weapon (choose one) to see its complete selectable weapon profiles. Weapon choices are mutually exclusive and must not be counted twice. If New Recruit does not show these model selections, report the roster editor version for follow-up.</description></rule><rule id="b5a7-90d9-1bce-519e" name="Faction / keyword boundary" hidden="false">
-          <description>FACTION: ABANDONED DEAD. BRANCH: DIRECTORATE. All share one catalogue. No automatic extra active Ghost-Shroud for mortals.</description>
+        <rule id="849b-409f-ed7e-4230" name="Battlefield Role" hidden="false">
+          <description>Directorate Breach Cells specialize in close-quarters assaults, combat engineering, demolition and reclamation. Select one mission kit when mustering this unit. The cell belongs to the Abandoned Dead faction and does not require an attached officer.</description>
+        </rule><rule id="b5a7-90d9-1bce-519e" name="Directorate Allegiance" hidden="false">
+          <description>This unit belongs to the Abandoned Dead Chapter's Liberation Directorate.</description>
         </rule>
       <rule id="be78682c-2e0b-5905-96d9-fc8843835fd4" name="Faction and unit keywords" hidden="false"><description>Faction: ABANDONED DEAD. Keywords: DIRECTORATE, INFANTRY, MORTAL.</description></rule></rules>
       <selectionEntryGroups>
@@ -27756,22 +27742,12 @@ Role: breaching, sabotage and reclamation; replaces three redundant v1.1 squad e
         </profile>
       </profiles>
       <rules>
-        <rule id="bdef-26e9-0f38-7a6f" name="Unit rules / homebrew status" hidden="false">
-          <description>homebrew mortal datasheet. No mandatory Guard-style officer Orders. This unit and all Astartes units belong to ONE Abandoned Dead faction.
-5 models; M6, T3, Sv5+, W1, Ld7+, OC1. Suppressed carbines, knives, encrypted communications. Infiltrators; Stealth. Select exactly one mission package at roster creation:
-
-- Sabotage: once per battle, when an enemy finishes a move within 3" of qualifying terrain containing a model of this cell, roll D6; on 4+ inflict D3 mortal wounds on that enemy unit. One test per cell.
-- Voxbreaker: once per battle at the start of the opposing Command phase, designate one enemy within 18"; until the end of that opponent's next Shooting phase, it cannot use Hit re-rolls specifically granted by Officer/Command abilities, not other sources.
-- Archive Recovery: while the cell is within range of an objective and not Battle-shocked, its total OC increases by +2, nonstacking.
-- Extraction: once per battle at the end of your Shooting phase, this unit may embark within an eligible friendly transport within 3" if it did not disembark that turn and ordinary embarkation restrictions allow it.
-
-Role: the hidden half of the army. Embedded agents, liaison cells and false-identity operatives are represented by its models and mission configurations instead of six near-identical datasheets. No automatic Astartes Ghost-Shroud.</description>
-        </rule>
-      <rule id="a3298da3-3d2e-5af8-a46f" name="Where to find weapons (v1.8)" hidden="false"><description>Open Squad Size / Personnel, then the selected size, then each named model. Five (or ten) required models and their standard weapons now populate automatically. Change each model’s Primary Weapon choice to make legal replacements; optional sixth–ninth models must be added deliberately. Equipment is charged once per selected model; do not add a second separate weapon copy.</description></rule><rule id="3f7a-bc5e-55e7-b6c6" name="Shadow Network" hidden="false">
+        <rule id="bdef-26e9-0f38-7a6f" name="Battlefield Role" hidden="false">
+          <description>Shadow Operative Cells infiltrate hostile territory to conduct sabotage, communications disruption, intelligence recovery and extraction operations. This unit has Infiltrators and Stealth. Select one mission package when mustering this unit.</description>
+        </rule><rule id="3f7a-bc5e-55e7-b6c6" name="Shadow Network" hidden="false">
           <description>Infiltrators, Stealth. Exactly one exclusive mission kit selected below.</description>
-        </rule>
-      <rule id="ad26-weapon-visibility-4" name="Weapon visibility / standard issue (v1.10)" hidden="false"><description>Standard primary weapon: Suppressed Carbine. The default is equipped through each required model under Squad Size / Personnel; open the model and Primary Weapon (choose one) to see its complete selectable weapon profiles. Weapon choices are mutually exclusive and must not be counted twice. If New Recruit does not show these model selections, report the roster editor version for follow-up.</description></rule><rule id="60e2-5cca-7e03-0f3b" name="Faction / keyword boundary" hidden="false">
-          <description>FACTION: ABANDONED DEAD. BRANCH: DIRECTORATE. All share one catalogue. No automatic extra active Ghost-Shroud for mortals.</description>
+        </rule><rule id="60e2-5cca-7e03-0f3b" name="Directorate Allegiance" hidden="false">
+          <description>This unit belongs to the Abandoned Dead Chapter's Liberation Directorate.</description>
         </rule>
       <rule id="adfffeb8-728c-5a98-b98f-2cd59c069e75" name="Faction and unit keywords" hidden="false"><description>Faction: ABANDONED DEAD. Keywords: DIRECTORATE, INFANTRY, MORTAL, SHADOW OPERATIVE.</description></rule></rules>
       <selectionEntryGroups>
