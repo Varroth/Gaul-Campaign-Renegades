@@ -41,6 +41,23 @@ def inspect():
             warnings.append(f"{name}: {len(repeated)} IDs repeated within file (inspect before changing)")
         per_file[name] = set(ids)
         all_ids.update(ids)
+
+        if name == "Frozen_Cogs.cat":
+            ns = "{http://www.battlescribe.net/schema/catalogueSchema}"
+            container = root.find(ns + "selectionEntries")
+            root_units = [
+                item for item in (list(container) if container is not None else [])
+                if local(item.tag) == "selectionEntry" and item.get("type") == "unit"
+            ]
+            if len(root_units) < 100:
+                errors.append(f"{name}: only {len(root_units)} root units found")
+            not_importable = [item.get("name", item.get("id")) for item in root_units
+                              if item.get("import") != "true"]
+            if not_importable:
+                errors.append(
+                    f"{name}: {len(not_importable)} root units lack import=true "
+                    f"(examples: {not_importable[:5]})"
+                )
         if name.endswith(".cat"):
             if local(root.tag) != "catalogue":
                 errors.append(f"{name}: not a catalogue root")

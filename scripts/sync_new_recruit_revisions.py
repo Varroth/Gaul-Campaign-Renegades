@@ -57,10 +57,44 @@ def update(path, kind, target_system_rev=None):
     print(f"Already current: {path.name}")
     return False
 
+
+def ensure_frozen_cogs_root_imports():
+    """Expose every Frozen Cogs root unit in New Recruit's selectable unit list.
+
+    The original generated catalogue omitted import="true" on all 164 root
+    selectionEntry nodes. Other catalogues explicitly mark their root units
+    importable. Patch only Frozen Cogs unit opening tags and leave every
+    equipment choice, unit ID and profile untouched.
+    """
+    path = ROOT / "Frozen_Cogs.cat"
+    if not path.exists():
+        return
+    source = path.read_text(encoding="utf-8")
+    pattern = re.compile(r'<selectionEntry\\b[^>]*\\btype="unit"[^>]*>')
+    matches = pattern.findall(source)
+    if len(matches) < 100:
+        raise ValueError(f"Frozen Cogs catalogue exposes only {len(matches)} root units")
+
+    def mark_importable(match):
+        tag = match.group(0)
+        if re.search(r'\\bimport="true"', tag):
+            return tag
+        if re.search(r'\\bimport="false"', tag):
+            return re.sub(r'\\bimport="false"', 'import="true"', tag, count=1)
+        return tag[:-1] + ' import="true">'
+
+    updated = pattern.sub(mark_importable, source)
+    if updated != source:
+        path.write_text(updated, encoding="utf-8")
+        print(f"Restored import=true for {len(matches)} Frozen Cogs root units")
+    else:
+        print(f"Frozen Cogs root unit import flags already valid ({len(matches)})")
+
 def main():
     if not GST.exists():
         raise SystemExit("Missing game system")
     update(GST, "gameSystem")
+    ensure_frozen_cogs_root_imports()
     system_source = GST.read_text(encoding="utf-8")
     system_tag = root_tag(system_source, "gameSystem")
     system_id = attr(system_tag, "id")
