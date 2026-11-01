@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - scripts/publish_frozen_cogs_editorial.py
+      - scripts/rename_frozen_cogs_units.py
 permissions:
   contents: write
 concurrency:
@@ -24,6 +25,8 @@ jobs:
           python-version: '3.12'
       - name: Apply editorial cleanup
         run: python scripts/publish_frozen_cogs_editorial.py
+      - name: Simplify Frozen Cogs unit names
+        run: python scripts/rename_frozen_cogs_units.py
       - name: Validate and synchronize
         run: |
           python scripts/sync_new_recruit_revisions.py --base HEAD
