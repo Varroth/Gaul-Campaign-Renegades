@@ -95,6 +95,39 @@ class StructureTests(unittest.TestCase):
             self.assertEqual(sum(e.get('type') == 'model' for e in selected), count)
             self.assertEqual(sum(float(c.get('value')) for e in selected for c in children(e, 'costs')), cost)
 
+    def test_nullifier_fixed_loadouts_and_profiles(self):
+        expected_stats = {
+            'Compact Carbine': ['18"', '2', '4+', '3', '0', '1', 'Assault'],
+            'Directorate Carbine': ['18"', '2', '4+', '3', '0', '1', 'Assault'],
+            'Sidearm': ['12"', '1', '4+', '3', '0', '1', 'Pistol'],
+            'Combat Knife': ['Melee', '2', '4+', '3', '0', '1', ''],
+        }
+        models_checked = profiles_checked = 0
+        for unit in children(self.root, 'selectionEntries'):
+            if unit.get('id') not in {'ad26-null-op-2026', 'ad26-null-team-2026'}:
+                continue
+            for model in children(unit, 'selectionEntries'):
+                with self.subTest(model=model.get('name')):
+                    primary = 'Compact Carbine' if 'Operator' in model.get('name') else 'Directorate Carbine'
+                    expected = {primary, 'Sidearm'}
+                    if not model.get('name').startswith('Null-field Technician'):
+                        expected.add('Combat Knife')
+                    selected = default_selection(model)
+                    weapons = [p for e in selected for p in children(e, 'profiles') if p.get('typeName') == 'Weapon']
+                    self.assertEqual({p.get('name') for p in weapons}, expected)
+                    self.assertEqual(len(weapons), len(expected))
+                    for p in weapons:
+                        self.assertEqual([c.text or '' for c in children(p, 'characteristics')], expected_stats[p.get('name')])
+                    for group in children(model, 'selectionEntryGroups'):
+                        self.assertEqual({c.get('type'): c.get('value') for c in children(group, 'constraints')}, {'min': '1', 'max': '1'})
+                    base_cost = sum(float(c.get('value')) for c in children(model, 'costs'))
+                    selected_cost = sum(float(c.get('value')) for e in selected for c in children(e, 'costs'))
+                    self.assertEqual(selected_cost, base_cost)
+                    models_checked += 1
+                    profiles_checked += len(weapons)
+        self.assertEqual(models_checked, 6)
+        self.assertEqual(profiles_checked, 16)
+
 
 class RevisionTests(unittest.TestCase):
     def setUp(self):

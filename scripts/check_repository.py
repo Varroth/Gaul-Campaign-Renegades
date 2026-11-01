@@ -125,10 +125,7 @@ def inspect(directory=ROOT):
                 errors.append(f'{name}: Nullifier units missing from root army list')
             for u in units:
                 if not any(local(p.tag) == 'profile' and p.get('typeName') == 'Weapon' for p in u.iter()):
-                    if u.get('id') in NULLIFIERS:
-                        warnings.append(f'{u.get("name")}: approved loadout has no approved numeric weapon profiles; attachment/Psychic weapon interactions remain manual')
-                    else:
-                        errors.append(f'{name}: {u.get("name")} has no weapon profiles')
+                    errors.append(f'{name}: {u.get("name")} has no weapon profiles')
         inventory.append({'file': name, 'id': root.get('id'), 'revision': int(root.get('revision', '0')),
                           'root_units': len(units), 'sha256': hashlib.sha256((directory/name).read_bytes()).hexdigest()})
     return errors, warnings, inventory
