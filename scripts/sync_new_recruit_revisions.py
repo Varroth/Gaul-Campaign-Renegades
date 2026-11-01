@@ -70,17 +70,17 @@ def ensure_frozen_cogs_root_imports():
     if not path.exists():
         return
     source = path.read_text(encoding="utf-8")
-    pattern = re.compile(r'<selectionEntry\\b[^>]*\\btype="unit"[^>]*>')
+    pattern = re.compile(r'<selectionEntry\b[^>]*\btype="unit"[^>]*>')
     matches = pattern.findall(source)
     if len(matches) < 100:
         raise ValueError(f"Frozen Cogs catalogue exposes only {len(matches)} root units")
 
     def mark_importable(match):
         tag = match.group(0)
-        if re.search(r'\\bimport="true"', tag):
+        if re.search(r'\bimport="true"', tag):
             return tag
-        if re.search(r'\\bimport="false"', tag):
-            return re.sub(r'\\bimport="false"', 'import="true"', tag, count=1)
+        if re.search(r'\bimport="false"', tag):
+            return re.sub(r'\bimport="false"', 'import="true"', tag, count=1)
         return tag[:-1] + ' import="true">'
 
     updated = pattern.sub(mark_importable, source)
