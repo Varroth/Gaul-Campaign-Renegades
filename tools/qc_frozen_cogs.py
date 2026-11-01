@@ -29,8 +29,6 @@ def main():
     if cat.get("gameSystemRevision") != gst.get("revision"):
         errors.append("Frozen Cogs gameSystemRevision does not match current .gst revision")
     entries = [e for e in cat.iter() if local(e.tag) == "selectionEntry"]
-    units = [e for e in entries if e.get("type") == "unit" and
-             local(next(iter([p for p in cat.iter() if e in list(p)]), cat).tag) == "selectionEntries"]
     # Count only entries directly beneath the root's selectionEntries collection.
     root_entries = next((e for e in cat if local(e.tag) == "selectionEntries"), None)
     units = [e for e in root_entries if local(e.tag) == "selectionEntry" and e.get("type") == "unit"] if root_entries is not None else []
