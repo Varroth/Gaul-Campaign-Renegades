@@ -1,4 +1,4 @@
-# Abandoned Dead — Vephar, the Uncrowned Sovereign — Chapter Master v1.9 (playtest)
+# Abandoned Dead — Vephar, the Uncrowned Sovereign — Chapter Master v1.9 (homebrew)
 
 **Published as a Vephar-only update** to the existing 59-entry Abandoned Dead catalogue, under Gaul Campaign: Renegades game-system revision 7. All other 58 Abandoned Dead units, Infernal Warriors, and Frozen Cogs data remain unchanged.
 
@@ -9,7 +9,7 @@
 - M 6", T 5, Sv 2+, W **7**, Ld 5+, OC **4**, 4+ invulnerable.
 - **The Veiled Truth**, permanent master-crafted power halberd. Cleave: A6, WS2+, S8, AP-3, D3. Sweep: A10, WS2+, S5, AP-2, D1. Choose only one each time he fights.
 - Ranged choose exactly one: default **The False Witness** with Bolter Volley (24", A3, BS2+, S5, AP-1, D2, Assault), or one Precision Execution Round (24", A1, BS2+, S6, AP-2, D3, Precision, once per battle **instead of** Bolter Volley); **OR** Master-crafted Plasma Pistol (12", A1, BS2+, S8, AP-3, D2, Pistol, Hazardous). 
-- **220 points provisional**, formerly 175.
+- **220 points homebrew**, formerly 175.
 
 ## Five activated abilities during battle
 1. **The Unbroken Chain** (each friendly Command phase): select up to two friendly Abandoned Dead Infantry units within 12"; one Wound reroll each when selected to shoot or fight in a phase, until your next Command phase.
@@ -28,4 +28,4 @@ Ghost-Shroud remains a passive standard Chapter rule and is **not** counted as o
 - No duplication of Vephar's old command ability or the former Oathblade.
 - Current GitHub game-system revision 7 remains unchanged.
 
-**Status:** XML structure, unique IDs, cost, five powers, weapon selections and unchanged 58 other root units passed local checks. In-app New Recruit editing and exported .ros still require an actual app check. Point cost is provisional, not battle-tested.
+**Status:** XML structure, unique IDs, cost, five powers, weapon selections and unchanged 58 other root units passed local checks. In-app New Recruit editing and exported .ros still require an actual app check. Point cost is homebrew, not battle-tested.
