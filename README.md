@@ -15,7 +15,7 @@ Use the app's update/refresh action, then reopen it online. Compare the installe
 | File | Revision | Root units |
 | --- | ---: | ---: |
 | `Gaul_Campaign_Renegades.gst` | 10 | — |
-| `Abandoned_Dead.cat` | **15** | **61** |
+| `Abandoned_Dead.cat` | **16** | **61** |
 | `Frozen_Cogs.cat` | 19 | 164 |
 | `Infernal_Warriors.cat` | 15 | 74 |
 | `Silver_Tempest.cat` | 7 | 0 |
@@ -25,6 +25,8 @@ This table describes the maintenance release. The generated manifest is authorit
 Abandoned Dead r14 merges duplicate XML equipment/rule containers and moves the two Nullifier units out of the Shadow Gunship equipment menu into the army list. All pre-existing IDs, points, profiles, weapon choices and rule text are retained. The four reported squads have complete default model/weapon paths in static tests, including both five- and ten-model configurations. See [the audit and remaining limitations](docs/MAINTENANCE_2026-11-01.md).
 
 **Nullifier armament (r15):** fixed carbines, sidearms and the approved models’ combat knives now have selectable, default-equipped weapon profiles. Weapon costs are included in the existing model prices. See [weapon statistics and validation](docs/NULLIFIER_WEAPONS_r15.md). Attachment restrictions and Psychic weapon interactions remain manual.
+
+**Keyword QC (r16):** all 61 units now list ABANDONED DEAD, their branch and appropriate unit-type keywords. Equipment-dependent Jump Pack/Fly and Transport tags are conditional. See the [complete unit review](docs/ABANDONED_DEAD_KEYWORD_QC_r16.md).
 
 ## Repository layout
 

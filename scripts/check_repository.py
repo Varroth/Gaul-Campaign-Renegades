@@ -104,6 +104,11 @@ def inspect(directory=ROOT):
                 errors.append(f'{name}: game-system ID/revision mismatch')
         units = [e for e in children(root, 'selectionEntries') if e.get('type') == 'unit']
         if name == 'Abandoned_Dead.cat':
+            try:
+                from .audit_abandoned_dead import inspect_keywords
+            except ImportError:
+                from audit_abandoned_dead import inspect_keywords
+            errors.extend(inspect_keywords(root, system, directory/'data/abandoned-dead-keywords.json'))
             by_name = {e.get('name'): e for e in units}
             for unit_name in AFFECTED:
                 unit = by_name.get(unit_name)

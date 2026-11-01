@@ -1,0 +1,926 @@
+{
+  "scope": "Reviewed unit classifications for Abandoned Dead r16. Roster sections are preserved; keyword changes do not grant additional special abilities.",
+  "category_ids": {
+    "BATTLELINE": "ec2c-68bb-bfbc-5ee3",
+    "ASTARTES": "adbd-c48e-4b21-a001",
+    "DIRECTORATE": "adbd-c48e-4b21-a002",
+    "CULTISTS": "adbd-c48e-4b21-a003",
+    "ABANDONED DEAD": "954e3821-6340-560b-af97-71050a5de700",
+    "AIRCRAFT": "8993a03e-b251-5164-b591-06da6b22168b",
+    "ARTILLERY": "9a5bd97f-695a-5113-b313-5cc28cbb5a0c",
+    "ATTACHED SPECIALIST": "bf946595-f5d1-5bae-bdf1-d5d69bc32826",
+    "BIKER": "5acedb9a-a2cb-546d-ab5a-947947dca77a",
+    "CHARACTER": "624f2024-0d0e-50a7-ac18-4a598ddd15eb",
+    "DREADNOUGHT": "fd0c93d2-8fbe-52b5-8ad0-793f33eb2a49",
+    "EPIC HERO": "7aaef766-3390-5bf4-96cb-aefc013e0843",
+    "FLY": "b1ebda4a-0f9b-5810-9c07-40f27b15446c",
+    "INFANTRY": "ba787804-0029-5721-a17f-f056a9818469",
+    "JUMP PACK": "43710e01-f8de-5bf9-a1ce-432991e4557a",
+    "LIBERATION PARTISANS": "5db87b5e-8841-5ba2-bcc8-582afbe7b91b",
+    "MORTAL": "0f843313-4b54-532b-ae55-4e1f8df27675",
+    "MOUNTED": "05bde62f-3781-5f6a-8bdd-9fc8110a7ffd",
+    "NULLIFIER": "9310d72f-45fe-5a00-999d-e84ef381bde2",
+    "OATHBOUND CULTISTS": "1f390de1-5da8-506e-b5f5-7e082d477a35",
+    "PATHFINDER": "9f84d0fc-c81d-5391-b242-12f41ab3a5f4",
+    "POWER ARMOUR": "830e8474-38a4-520f-97a4-b9718571fa09",
+    "SCOUT": "bf3e1f3f-58cf-5cc9-8e22-643ad32b7e6e",
+    "SHADOW OPERATIVE": "d19cb832-0f21-5420-b3e4-df54e067a42c",
+    "TERMINATOR": "c66bbb1f-532c-5bf5-956c-c6c07a335d02",
+    "TRANSPORT": "51ee0409-9317-5200-8666-ab9a4c5ce23d",
+    "VEHICLE": "9862bfd3-4859-5fcf-b884-f4ebf4be0d35",
+    "WALKER": "c1028409-2cbc-544b-a7e7-76275e4f5793"
+  },
+  "units": [
+    {
+      "id": "79a3-ecef-550e-2cda",
+      "name": "Vephar, the Uncrowned Sovereign",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "8680-5a68-f74b-5bc5",
+      "name": "Chief Apothecary Buer",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "0d42-fc8c-b716-853d",
+      "name": "Abandoned Dead Strike Commander",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER"
+      ],
+      "conditional": [
+        {
+          "option_id": "68b2-611c-f809-e729",
+          "option": "Jump Pack",
+          "keywords": [
+            "JUMP PACK",
+            "FLY"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6a9a-e46f-e7a2-429c",
+      "name": "Kaedran Morvane, the Pale Warden",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "CHARACTER",
+        "EPIC HERO",
+        "TERMINATOR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "3d51-3d8c-e884-395e",
+      "name": "Abandoned Dead Shadow Lieutenant",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "4c5f-2a7b-9202-8984",
+      "name": "Abandoned Dead Forge-Wright",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "194a-d079-a51c-92a4",
+      "name": "Ghostline Squad",
+      "section": "Battleline",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "BATTLELINE"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "4d81-3e34-ddda-5c08",
+      "name": "Veil Stalker Hunter-Killer Squad",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "425f-11e9-b1b8-8792",
+      "name": "Veil Stalker Sniper Squad",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "7485-9d8d-440c-8acd",
+      "name": "Unmarked Scout Squad",
+      "section": "Battleline",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "BATTLELINE",
+        "SCOUT"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "6127-1325-a46d-ae8e",
+      "name": "Unmarked Scout Sniper Squad",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "SCOUT"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "f12f-1412-f450-0a33",
+      "name": "Blackout Breachers",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "8355-097e-c288-f590",
+      "name": "Pallbearer Veterans",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "5607-441a-3ac3-e51a",
+      "name": "Pallbearer Terminators",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "TERMINATOR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "1166-01c8-c884-9ec0",
+      "name": "Grave Seeker Recovery Team",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "ceb0-babc-4da3-6f14",
+      "name": "Veiled Circuit Signal Cell",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "beed-6a29-84c2-9633",
+      "name": "Phantom Lancers",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "MOUNTED",
+        "BIKER",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "1ecb-63cf-485e-3ec3",
+      "name": "Falling Shroud Jump Assault",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "JUMP PACK",
+        "FLY"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "d048-9dea-8f51-d1f1",
+      "name": "Last Echo Heavy-Support Squad",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "0586-56ff-5c5b-08ec",
+      "name": "Shroud Dreadnought",
+      "section": "Vehicles & Support",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "VEHICLE",
+        "WALKER",
+        "DREADNOUGHT"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "3da2-e6c7-5084-be1b",
+      "name": "Shroud Armoured Carrier",
+      "section": "Vehicles & Support",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "VEHICLE",
+        "TRANSPORT"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "4b09-ff83-ea66-0e63",
+      "name": "Shroud Battle Tank",
+      "section": "Vehicles & Support",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "VEHICLE"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "21ec-54af-8dfc-a83a",
+      "name": "Ghostwing Assault Gunship",
+      "section": "Vehicles & Support",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "VEHICLE",
+        "AIRCRAFT",
+        "FLY"
+      ],
+      "conditional": [
+        {
+          "option_id": "5b95-17a7-8d11-8323",
+          "option": "Insertion Fit",
+          "keywords": [
+            "TRANSPORT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf65-b002-92d8-9117",
+      "name": "Abandoned Dead Truthwarden",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "4675-8666-6bfe-5a7e",
+      "name": "Abandoned Dead Ciphermaster",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "8fff-e2c9-fe1d-3ffd",
+      "name": "Void Wraith Boarding Squad",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "f52f-fd8b-5791-f050",
+      "name": "Silent Knell Shock Squad",
+      "section": "Specialists",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "ef66-2178-0eea-5b46",
+      "name": "Spectre Recon Skimmer",
+      "section": "Vehicles & Support",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "VEHICLE",
+        "FLY"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "8273-9ac1-684a-66bd",
+      "name": "Nullfire Interceptor",
+      "section": "Vehicles & Support",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "VEHICLE"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "09da-89dd-8483-0f26",
+      "name": "Pallbearer Heavy Assault Carrier",
+      "section": "Vehicles & Support",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "VEHICLE",
+        "TRANSPORT"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "195f-9e4c-5ef5-abe9",
+      "name": "Elias Veyr, Shadow Director",
+      "section": "Command",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "8549-39b5-386e-c1ae",
+      "name": "Directorate Field Liaison",
+      "section": "Command",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL",
+        "CHARACTER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "26fe-d067-b1ea-09ab",
+      "name": "Shadow Handler",
+      "section": "Command",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL",
+        "CHARACTER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "a45a-d90b-6c28-b9eb",
+      "name": "Cult Agitator",
+      "section": "Command",
+      "branch": "CULTISTS",
+      "keywords": [
+        "ABANDONED DEAD",
+        "CULTISTS",
+        "INFANTRY",
+        "MORTAL",
+        "CHARACTER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "3ec3-f6df-6531-1bd9",
+      "name": "Directorate Line Infantry",
+      "section": "Battleline",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL",
+        "BATTLELINE"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "ba71-8609-1487-aeb2",
+      "name": "Directorate Veteran Cell",
+      "section": "Specialists",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "ed34-0f0b-5c8c-63f0",
+      "name": "Directorate Breach Cell",
+      "section": "Specialists",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "c36c-1d2f-28d9-9aa4",
+      "name": "Shadow Operative Cell",
+      "section": "Specialists",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL",
+        "SHADOW OPERATIVE"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "b4b9-0497-b336-a064",
+      "name": "Pathfinder Recon Team",
+      "section": "Specialists",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL",
+        "PATHFINDER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "7281-b378-4a62-560a",
+      "name": "Longwatch Marksmen",
+      "section": "Specialists",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "4dd9-b81c-4ccf-5a25",
+      "name": "Heavy Weapons Cell",
+      "section": "Vehicles & Support",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "818f-0f91-a470-09b5",
+      "name": "Field Support Cell",
+      "section": "Vehicles & Support",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "4785-b78b-bc9f-02b5",
+      "name": "Oathbound Cultists",
+      "section": "Battleline",
+      "branch": "CULTISTS",
+      "keywords": [
+        "ABANDONED DEAD",
+        "CULTISTS",
+        "INFANTRY",
+        "MORTAL",
+        "BATTLELINE",
+        "OATHBOUND CULTISTS"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "b2d2-bf41-7500-1203",
+      "name": "Shroud-Knife Cultists",
+      "section": "Specialists",
+      "branch": "CULTISTS",
+      "keywords": [
+        "ABANDONED DEAD",
+        "CULTISTS",
+        "INFANTRY",
+        "MORTAL"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "d965-5dd1-c8f4-14f7",
+      "name": "Liberation Partisans",
+      "section": "Battleline",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL",
+        "BATTLELINE",
+        "LIBERATION PARTISANS"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "ca59-3db2-b206-af6c",
+      "name": "Ghost Carrier",
+      "section": "Vehicles & Support",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "VEHICLE"
+      ],
+      "conditional": [
+        {
+          "option_id": "5e3d-7ca1-429d-3ef8",
+          "option": "Covered Transport",
+          "keywords": [
+            "TRANSPORT"
+          ]
+        },
+        {
+          "option_id": "ce76-46d4-b8ec-a3a5",
+          "option": "Recon Fit",
+          "keywords": [
+            "TRANSPORT"
+          ]
+        },
+        {
+          "option_id": "1498-42fe-7f26-245b",
+          "option": "Fire Support Fit",
+          "keywords": [
+            "TRANSPORT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb46-5390-3040-e1a3",
+      "name": "Spectre Scout Walker",
+      "section": "Vehicles & Support",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "VEHICLE",
+        "WALKER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "6b7e-4f9b-b292-0f44",
+      "name": "Reclaimed Battle Tank",
+      "section": "Vehicles & Support",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "VEHICLE"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "fe1e-eeb5-3fc9-495f",
+      "name": "Null Battery",
+      "section": "Vehicles & Support",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "VEHICLE",
+        "ARTILLERY"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "60e7-88ab-dc2f-40ac",
+      "name": "Shadow Gunship",
+      "section": "Vehicles & Support",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "VEHICLE",
+        "AIRCRAFT",
+        "FLY"
+      ],
+      "conditional": [
+        {
+          "option_id": "0ce5-e265-ef9f-d4a9",
+          "option": "Extraction/Airlift",
+          "keywords": [
+            "TRANSPORT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f022-a856-4f0b-554d",
+      "name": "Serik Valech, Hollow Fox",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "db76-2629-5115-a51b",
+      "name": "Odran Khelt, Dead Channel",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "73fe-8e6e-7c3b-0015",
+      "name": "Threx Halvorn, Gravesight",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "e4e1-e436-5224-cfc5",
+      "name": "Malach Vorn, Black Bell",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "f55f-7d88-1592-b631",
+      "name": "Cyren Mordax, False Signal",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "9992-4ce4-6a0d-e55f",
+      "name": "Darek Soln, Ghost Spear",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "MOUNTED",
+        "BIKER",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "b85f-173a-ff5a-bb13",
+      "name": "Maelor Vexis, Nightfall",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO",
+        "JUMP PACK",
+        "FLY"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "400b-e847-9878-9bf6",
+      "name": "Hadrien Ossar, Last Report",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "a524-846e-02d0-a732",
+      "name": "Amon Veyth, Null",
+      "section": "Command",
+      "branch": "ASTARTES",
+      "keywords": [
+        "ABANDONED DEAD",
+        "ASTARTES",
+        "INFANTRY",
+        "POWER ARMOUR",
+        "CHARACTER",
+        "EPIC HERO"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "ad26-null-op-2026",
+      "name": "Nullifier Operator",
+      "section": "Specialists",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL",
+        "ATTACHED SPECIALIST",
+        "NULLIFIER"
+      ],
+      "conditional": []
+    },
+    {
+      "id": "ad26-null-team-2026",
+      "name": "Nullifier Interdiction Team",
+      "section": "Specialists",
+      "branch": "DIRECTORATE",
+      "keywords": [
+        "ABANDONED DEAD",
+        "DIRECTORATE",
+        "INFANTRY",
+        "MORTAL",
+        "NULLIFIER"
+      ],
+      "conditional": []
+    }
+  ]
+}
