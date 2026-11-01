@@ -9,6 +9,9 @@ import xml.etree.ElementTree as ET
 
 PATH = Path("Frozen_Cogs.cat")
 old = PATH.read_text(encoding="utf-8")
+if 'name="Frozen Cogs" revision="18"' in old:
+    print("Frozen Cogs is already revision 18; no update necessary.")
+    raise SystemExit(0)
 assert 'name="Frozen Cogs" revision="17"' in old, "Expected release 17"
 new = old.replace('name="Frozen Cogs" revision="17"',
                   'name="Frozen Cogs" revision="18"', 1)
