@@ -28,3 +28,20 @@ Status: **technical audit in progress; no lore, rules, points, IDs or faction ch
 - Any modification to established lore or faction-specific army identity.
 
 This branch intentionally avoids rewriting the 5.9 MB catalogue without exhaustive option-by-option comparison.
+
+## Evolving Arsenal sample — inspected in published revision 17
+
+| Squad | Individual model entries | Equipment groups | Constraint scopes |
+| --- | ---: | ---: | --- |
+| Wintergrave Siege Terminators | 10 | 49 | parent, roster |
+| Frostglass Interdictors | 10 | 39 | parent, roster |
+| IceBreaker Breachers | 10 | 40 | parent, roster |
+| IceBreaker Terminators | 10 | 40 | parent, roster |
+| Frozen Cogs Tactical Squad | 10 | 40 | parent, roster |
+| Frozen Cogs Devastator Squad | 10 | 30 | parent, roster |
+
+**Confirmed gap:** Each sampled unit offers native per-model equipment choices, but its constraint elements only use `parent` and `roster` scopes; no modifier elements were found in the catalogue. This does **not** demonstrate enforcement of cross-model quotas such as Tactical special-per-five, heavy-per-ten, or Devastator heavy-per-squad. The datasheet text explicitly calls for manual verification. These are existing-rule enforcement gaps, not proposed gameplay revisions.
+
+**Next implementation gate:** Build native cross-model aggregate checks (or an accurate external validator where BattleScribe semantics cannot enforce them) and test representative legal/illegal loadouts before modifying the large catalogue. Preserve all current option names, IDs, point values, profiles and squad rules. Do not conflate a per-model `parent` max with a unit-wide quota.
+
+**Caution:** This is a structural inspection, not a successful New Recruit import or an executed GitHub Actions run.
