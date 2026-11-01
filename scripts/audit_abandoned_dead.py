@@ -70,7 +70,7 @@ def inspect_keywords(root, system, matrix_path=None):
             found.add((cond.get('childId'), modifier.get('value')))
         if found != want:
             errors.append(f'{prefix}: equipment-dependent keywords differ from reviewed matrix')
-        summary = next((e for e in children(u,'rules') if e.get('name') == 'Faction and unit keywords'), None)
+        summary = next((e for e in children(u,'rules') if e.get('name') in {'Keywords', 'Faction and unit keywords'}), None)
         if summary is None or not all(k in ''.join(summary.itertext()) for k in spec['keywords']):
             errors.append(f'{prefix}: missing exported keyword summary')
     return errors

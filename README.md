@@ -15,10 +15,12 @@ Use the app's update/refresh action, then reopen it online. Compare the installe
 | File | Revision | Root units |
 | --- | ---: | ---: |
 | `Gaul_Campaign_Renegades.gst` | 10 | — |
-| `Abandoned_Dead.cat` | **16** | **61** |
-| `Frozen_Cogs.cat` | 19 | 164 |
-| `Infernal_Warriors.cat` | 15 | 74 |
+| `Abandoned_Dead.cat` | **18** | **61** |
+| `Frozen_Cogs.cat` | 20 | 164 |
+| `Infernal_Warriors.cat` | 16 | 74 |
 | `Silver_Tempest.cat` | 7 | 0 |
+
+**Frozen Cogs r20:** polished ability wording and removed development notices. Infernal Warriors r16 republishes all 74 existing units with stable IDs. The Abandoned Dead keyword validator now accepts its revised heading. See [details and limitations](docs/FROZEN_COGS_EDITORIAL_r20.md).
 
 This table describes the maintenance release. The generated manifest is authoritative after later updates.
 
