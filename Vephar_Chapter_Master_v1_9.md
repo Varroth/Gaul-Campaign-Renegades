@@ -1,11 +1,11 @@
 # Vephar, the Uncrowned Sovereign — Chapter Master of the Abandoned Dead
-## Playtest Datasheet v1.9 — Five activated battle abilities
+## homebrew Datasheet v1.9 — Five activated battle abilities
 
 **Canonical epithet:** The Uncrowned Sovereign. **Formal office:** Chapter Master of the Abandoned Dead. The historical designation "Chaos Lord" is not his current canonical title.
 
 Vephar is visibly and reliably known to his Chapter's captains, the Triarchate and Elias Veyr. His operational deception is directed at his enemies. He is the first successful hybrid Astartes of the Abandoned Dead, not Alpharius or an Alpha Legion genetic descendant. Some older sources refer to him as **Chaos Lord**; this is a historical descriptor, not his canonical title or an assertion of Chaos worship.
 
-**Characteristic profile:** M 6", T 5, Sv 2+, W **7**, Ld 5+, OC **4**; 4+ invulnerable save; passive approved Ghost-Shroud. **220 points, provisional.** Unique Character (maximum one).
+**Characteristic profile:** M 6", T 5, Sv 2+, W **7**, Ld 5+, OC **4**; 4+ invulnerable save; passive approved Ghost-Shroud. **220 points, homebrew.** Unique Character (maximum one).
 
 ## Wargear
 
@@ -47,4 +47,4 @@ Vephar may attach to Ghostline Squad, Blackout Breachers, Pallbearer Veterans or
 
 ## Balance status
 
-Playtest implementation only. The jump from 175 to 220 points reflects seven Wounds, a stronger halberd and the five tactical abilities. Quantitative game balance, mission-based playtests, and New Recruit UI/roster export have **not** been independently verified. The previously approved Chapter and mortal rules are unchanged; only Vephar's datasheet and his selectable loadout are revised.
+homebrew implementation only. The jump from 175 to 220 points reflects seven Wounds, a stronger halberd and the five tactical abilities. Quantitative game balance, mission-based playtests, and New Recruit UI/roster export have **not** been independently verified. The previously approved Chapter and mortal rules are unchanged; only Vephar's datasheet and his selectable loadout are revised.
