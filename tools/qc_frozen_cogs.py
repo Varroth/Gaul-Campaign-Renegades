@@ -47,7 +47,7 @@ def main():
     representative = [
         "Wintergrave Siege Terminators", "Frostglass Interdictors",
         "IceBreaker Breachers", "IceBreaker Terminators",
-        "Frozen Cogs Tactical Squad", "Frozen Cogs Devastator Squad",
+        "Tactical Squad", "Devastator Squad",
     ]
     arsenal = []
     for name in representative:
