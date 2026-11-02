@@ -1,47 +1,30 @@
 # Gaul Campaign: Renegades
 
-Homebrew Warhammer 40,000 data for **New Recruit**: Infernal Warriors, Frozen Cogs and Abandoned Dead. Silver Tempest is an empty reserved catalogue.
+Homebrew Warhammer 40,000 army catalogues for New Recruit.
 
-## Install and receive updates
+[Install Gaul Campaign: Renegades in New Recruit](https://www.newrecruit.eu/app/MySystems?addSystem=Varroth%2FGaul-Campaign-Renegades&ref=HEAD)
 
-[Install from GitHub in New Recruit](https://www.newrecruit.eu/app/MySystems?addSystem=Varroth%2FGaul-Campaign-Renegades&ref=HEAD), or use **MySystems → Add from GitHub**, enter `Varroth/Gaul-Campaign-Renegades`, and select **Latest Commit (Head)**.
+## Build your first roster
 
-The five `.gst`/`.cat` files at the repository root on `main` are the live dataset. GitHub installations are eligible for New Recruit's automatic updates. Local file imports are not GitHub subscriptions. The install link does not force a refresh of an already installed copy.
+1. Open the install link. For manual installation, open **MySystems → Add from GitHub**, enter `Varroth/Gaul-Campaign-Renegades`, and choose **Latest Commit (Head)**.
+2. Create a roster using **Gaul Campaign: Renegades**, choose your faction and set the points limit for your battle.
+3. Add units from the faction’s army list. Open each unit to choose its size, weapons and wargear. Check the roster warnings before exporting your list.
 
-Use the app's update/refresh action, then reopen it online. Compare the installed catalogue revision with [catalogue-manifest.json](catalogue-manifest.json). Avoid duplicate local installations; back up saved rosters before removing any source. Do not delete lists to troubleshoot an update.
+| Catalogue | Army list |
+| --- | --- |
+| Infernal Warriors | 74 units, including Despoiler Cadre, Void Breachers and Ashen Chain Terminators. |
+| Frozen Cogs | 164 units. Look for units by their individual names in the faction list. |
+| Abandoned Dead | 61 units, including Astartes, Liberation Directorate forces and Nullifier specialists. |
+| Silver Tempest | Reserved for a future army. No units are available. |
 
-## Current maintenance release — November 1, 2026
+For Infernal Warriors, pay for each declared Leader separately. Each Lost Cohort unit requires its own qualifying Chaplain. For a Unified Forces battle, agree the coalition with your opponents and muster each contingent from its own catalogue.
 
-| File | Revision | Root units |
-| --- | ---: | ---: |
-| `Gaul_Campaign_Renegades.gst` | 10 | — |
-| `Abandoned_Dead.cat` | **18** | **61** |
-| `Frozen_Cogs.cat` | 20 | 164 |
-| `Infernal_Warriors.cat` | 16 | 74 |
-| `Silver_Tempest.cat` | 7 | 0 |
+## Update an existing installation
 
-**Frozen Cogs r20:** polished ability wording and removed development notices. Infernal Warriors r16 republishes all 74 existing units with stable IDs. The Abandoned Dead keyword validator now accepts its revised heading. See [details and limitations](docs/FROZEN_COGS_EDITORIAL_r20.md).
+Open New Recruit online, use its update or refresh action, then reopen the system. Compare the installed faction revision with the [current catalogue manifest](catalogue-manifest.json). A GitHub installation can receive updates. Importing a local file creates a separate copy.
 
-This table describes the maintenance release. The generated manifest is authoritative after later updates.
+If a selection is missing, check it in a fresh roster of the same faction. This helps distinguish an older saved selection from a catalogue problem. Keep your saved lists and back them up before removing an installation.
 
-Abandoned Dead r14 merges duplicate XML equipment/rule containers and moves the two Nullifier units out of the Shadow Gunship equipment menu into the army list. All pre-existing IDs, points, profiles, weapon choices and rule text are retained. The four reported squads have complete default model/weapon paths in static tests, including both five- and ten-model configurations. See [the audit and remaining limitations](docs/MAINTENANCE_2026-11-01.md).
+## Repository reference
 
-**Nullifier armament (r15):** fixed carbines, sidearms and the approved models’ combat knives now have selectable, default-equipped weapon profiles. Weapon costs are included in the existing model prices. See [weapon statistics and validation](docs/NULLIFIER_WEAPONS_r15.md). Attachment restrictions and Psychic weapon interactions remain manual.
-
-**Keyword QC (r16):** all 61 units now list ABANDONED DEAD, their branch and appropriate unit-type keywords. Equipment-dependent Jump Pack/Fly and Transport tags are conditional. See the [complete unit review](docs/ABANDONED_DEAD_KEYWORD_QC_r16.md).
-
-## Repository layout
-
-- Root `.gst` and `.cat`: live New Recruit source, with stable filenames and IDs.
-- `catalogue-manifest.json`: generated revisions, unit counts and SHA-256 hashes; diagnostic metadata, not a New Recruit update index.
-- `scripts/`: repository audits and revision maintenance.
-- `tools/`: Frozen Cogs structural/exported-roster checks.
-- `tests/`: regression tests, including the Abandoned Dead visibility defects.
-- `docs/`: current maintenance findings; `docs/archive/` preserves earlier release notes, reports and reference tables. Archived versions are historical, not current release claims.
-- `ROSTER_FIELD_CHECK.html`: optional offline Infernal Warriors exported-roster helper; not a New Recruit integration test.
-
-## Maintainers
-
-See [publishing and validation](GITHUB_SETUP.md). Every push to `main` validates all catalogues; pull requests run read-only checks. Revision maintenance changes metadata only. Completed one-off r18/r19 release publishers have been retired.
-
-GitHub validation does not prove that a particular device has refreshed, that every native attachment/quota works, or that homebrew points are balanced. New Recruit acceptance remains a separate real-app test. Unified Forces remains the shared standing alliance option; this maintenance does not alter lore or army rules.
+The root game system and faction catalogues are the live files. The [publication guide](GITHUB_SETUP.md) covers validation and updates. [Maintenance reports](docs/) record individual changes, and the [archive](docs/archive/) preserves earlier releases. The [offline field checker](ROSTER_FIELD_CHECK.html) is a helper for exported Infernal Warriors rosters.

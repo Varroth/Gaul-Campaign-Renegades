@@ -33,6 +33,6 @@ The two completed, version-pinned Frozen Cogs release workflows and migration sc
 
 ## Diagnose an apparently stale app
 
-Compare installed catalogue revisions with the generated manifest. For this maintenance release, Abandoned Dead is r14 with 61 root units, including Nullifier Operator and Nullifier Interdiction Team. A fresh list should expose personnel/weapon selections for Unmarked Scout Squad, Blackout Breachers, Directorate Breach Cell and Shadow Operative Cell. Existing saved lists may need their selections refreshed separately.
+Compare installed catalogue revisions with the generated manifest. Abandoned Dead includes Nullifier Operator and Nullifier Interdiction Team. A fresh list should expose personnel/weapon selections for Unmarked Scout Squad, Blackout Breachers, Directorate Breach Cell and Shadow Operative Cell. Existing saved lists may need their selections refreshed separately.
 
 If the installed revision is older, investigate the installed source, update response and device cache. If the revision is current but a unit/weapon is absent, investigate catalogue parsing and roster selection paths. A successful GitHub commit or Actions run alone cannot certify automatic refresh on a device.

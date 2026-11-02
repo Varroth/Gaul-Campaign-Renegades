@@ -3,9 +3,9 @@
     {
       "file": "Abandoned_Dead.cat",
       "id": "2e5a-ada1-0de1-2026",
-      "revision": 18,
+      "revision": 19,
       "root_units": 61,
-      "sha256": "5ab2d7f3a85d0beff022eeec7c36805f6fa100621425ec3ed8b5bc3340207b59"
+      "sha256": "3e94d9e03bccf47f82be3637be3fb0378c4fcbdf1d0c272d8fa7fbcedb0ba00b"
     },
     {
       "file": "Frozen_Cogs.cat",
@@ -24,9 +24,9 @@
     {
       "file": "Infernal_Warriors.cat",
       "id": "9337-a54f-d3db-5126",
-      "revision": 16,
+      "revision": 17,
       "root_units": 74,
-      "sha256": "32568daeee42a0740f6295941a4f5e7405da821e2cf50c1f96d72fbc4ce4093b"
+      "sha256": "5b181a19556463e4d48034ee7d20542bec92dc23bdd15a9bf71a81106ec3a7fe"
     },
     {
       "file": "Silver_Tempest.cat",
