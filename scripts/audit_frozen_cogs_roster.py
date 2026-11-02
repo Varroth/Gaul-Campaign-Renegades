@@ -44,7 +44,7 @@ def inspect():
     for i,u in enumerate(roots[:16]):
         caps=[e for e in u.findall("./"+NS+"constraints/"+NS+"constraint")
               if e.get("scope")=="roster" and e.get("type")=="max"]
-        target="6" if u.get("name")=="Frozen Cogs Tactical Squad" else "3"
+        target="6" if u.get("name")=="Tactical Squad" else "3"
         if len(caps)!=1 or caps[0].get("value")!=target:
             errors.append(f"{u.get('name')}: missing/wrong roster-copy cap")
     for e in cat.iter():
