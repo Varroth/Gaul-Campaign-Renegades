@@ -63,7 +63,7 @@ def inspect_keywords(root, system, matrix_path=None):
                 errors.append(f'{prefix}: unexpected category modifier')
                 continue
             cond = conds[0]
-            if (cond.get('type'),cond.get('value'),cond.get('scope'),cond.get('field'),cond.get('includeChildSelections'),cond.get('includeChildForces')) != ('atLeast','1','parent','selections','true','false'):
+            if (cond.get('type'),cond.get('value'),cond.get('scope'),cond.get('field'),cond.get('includeChildSelections'),cond.get('includeChildForces')) != ('atLeast','1','self','selections','true','false'):
                 errors.append(f'{prefix}: keyword condition must apply to this unit only')
             if cond.get('childId') not in descendant_ids:
                 errors.append(f'{prefix}: keyword condition references another unit')

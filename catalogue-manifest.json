@@ -3,16 +3,16 @@
     {
       "file": "Abandoned_Dead.cat",
       "id": "2e5a-ada1-0de1-2026",
-      "revision": 19,
+      "revision": 20,
       "root_units": 61,
-      "sha256": "3e94d9e03bccf47f82be3637be3fb0378c4fcbdf1d0c272d8fa7fbcedb0ba00b"
+      "sha256": "5abe9f4336f50c97cdcb6184e8e1044d39ac20862ca0b0d3c7e3b783a2a6c764"
     },
     {
       "file": "Frozen_Cogs.cat",
       "id": "9a0b2133-696e-5c99",
-      "revision": 21,
+      "revision": 22,
       "root_units": 164,
-      "sha256": "2f64544302368ebee228046ac01a1cf7859a1c26adefee61be8c69d973f4e572"
+      "sha256": "2edb33b4eee07f57c053ea980c4c98cccad2ec257fef806c373fff2752b7e25c"
     },
     {
       "file": "Gaul_Campaign_Renegades.gst",
@@ -24,9 +24,9 @@
     {
       "file": "Infernal_Warriors.cat",
       "id": "9337-a54f-d3db-5126",
-      "revision": 17,
+      "revision": 18,
       "root_units": 74,
-      "sha256": "5b181a19556463e4d48034ee7d20542bec92dc23bdd15a9bf71a81106ec3a7fe"
+      "sha256": "5696d027f64fa19091ed125b7974f7ed92b2fd85914ac969076f434efa99e41f"
     },
     {
       "file": "Silver_Tempest.cat",
