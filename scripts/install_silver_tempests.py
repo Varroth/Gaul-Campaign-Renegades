@@ -51,8 +51,8 @@ UNITS = [
  ("Stormheart Dreadnought",195,("8\"",9,"2+",10,"6+",3,"5+"),["VEHICLE","WALKER","DREADNOUGHT","ASTARTES","CHAOS","PSYKER"],1,
   [("Stormheart conduit",[("Tempest Lance","Gain the Tempest Lance psychic ranged weapon."),("Aegis of Iron","Once per battle round, gain a 5+ invulnerable save when targeted until the end of the phase."),("Ancient Foresight","Once per battle round, one friendly Silver Tempests unit within 6 inches may re-roll one Hit roll.")]),("Primary weapon",[("Assault cannon","Dreadnought assault cannon."),("Multi-melta","Multi-melta."),("Twin lascannon","Twin lascannon.")])])]
 def ability(parent, key, name, description):
-    p=el(parent,"profile",key,name=name,typeId="9e35-1f3d-c6b7-3ec0",typeName="Abilities",hidden="false")
-    characteristic(add(p,"characteristics"),"Description","6fdd-8f47-abc3-6d08",description)
+    p=el(parent,"profile",key,name=name,typeId="bd5c-f804-35b5-510d",typeName="Ability",hidden="false")
+    characteristic(add(p,"characteristics"),"Description","4c71-0d90-3b92-5cec",description)
 def weapon(parent, key, name, vals):
     p=el(parent,"profile",key,name=name,typeId="a4f5-4674-06d7-5496",typeName="Weapon",hidden="false")
     ch=add(p,"characteristics")
