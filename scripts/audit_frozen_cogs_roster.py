@@ -25,7 +25,21 @@ def inspect():
     errors=[];warning=[];checks={}
     roots=cat.find(NS+"selectionEntries").findall(NS+"selectionEntry")
     checks["root_units"]=len(roots)
-    if len(roots)!=164:errors.append(f"Expected 164 root units, found {len(roots)}")
+    if len(roots)!=169:errors.append(f"Expected 169 root units (164 Frozen Cogs + 5 Silver Tempests), found {len(roots)}")
+    silver_names={"Stormseer", "Tidebound Intervention Squad", "Silver Fang Terminators", "Tempest Talons", "Stormheart Dreadnought"}
+    silver_categories={e.get("id") for e in cat.findall("./"+NS+"categoryEntries/"+NS+"categoryEntry") if e.get("name")=="Silver Tempests"}
+    if len(silver_categories)!=1:
+        errors.append("Expected exactly one Silver Tempests category")
+    for unit_name in sorted(silver_names):
+        entries=[u for u in roots if u.get("name")==unit_name]
+        if len(entries)!=1:
+            errors.append(f"Expected one Silver Tempests unit: {unit_name}; found {len(entries)}")
+            continue
+        links=entries[0].findall("./"+NS+"categoryLinks/"+NS+"categoryLink")
+        primary=[link for link in links if link.get("primary")=="true"]
+        if len(primary)!=1 or primary[0].get("targetId") not in silver_categories:
+            errors.append(f"{unit_name}: primary category must be Silver Tempests")
+    checks["silver_tempests_units"]=sum(u.get("name") in silver_names for u in roots)
     if any(u.get("type")!="unit" or u.get("import")!="true" for u in roots):
         errors.append("Root-unit type or import flags invalid")
     ids=[node.get("id") for node in cat.iter() if node.get("id")]
