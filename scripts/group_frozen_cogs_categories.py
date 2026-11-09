@@ -25,6 +25,7 @@ def children(node,name):return node.findall(NS+name)
 def new_id(key):return str(uuid.uuid5(uuid.NAMESPACE_URL,"gaul-frozen-cogs-categories-v1/"+key))
 def select_group(unit,old,keywords):
     name=unit.get("name")
+    if old in GROUPS:return old
     if old=="Silver Tempests":return "Silver Tempests"
     if old=="Frostbound Auxilia":return "Auxiliaries"
     if old=="Contained Daemon Engines" or "DAEMON ENGINE" in keywords:return "Daemon Engines"
@@ -44,13 +45,34 @@ def run():
     tree=ET.parse(PATH);root=tree.getroot()
     cats=child(root,"categoryEntries")
     entries=child(root,"selectionEntries")
+    gs_path=PATH.parent/"Gaul_Campaign_Renegades.gst"
+    gs_tree=ET.parse(gs_path)
+    gs=gs_tree.getroot()
+    GNS="{http://www.battlescribe.net/schema/gameSystemSchema}"
+    gs_cats=gs.find(GNS+"categoryEntries")
+    gs_forces=gs.find(GNS+"forceEntries")
+    fc_force=next(x for x in gs_forces if x.get("name")=="Frozen Cogs Expeditionary Force")
     if cats is None or entries is None:raise ValueError("Missing catalogue category/selection containers")
-    by_name={e.get("name"):e for e in children(cats,"categoryEntry")}
-    by_id={e.get("id"):e.get("name") for e in children(cats,"categoryEntry")}
+    # Force-entry category links control what New Recruit actually displays.
+    # Define all nine categories in the shared game system, not only the catalogue.
+    gs_by_name={e.get("name"):e for e in gs_cats}
     for group in GROUPS:
-        if group not in by_name:
-            c=ET.SubElement(cats,NS+"categoryEntry",{"id":new_id(group),"name":group,"hidden":"false"})
-            by_name[group]=c;by_id[c.get("id")]=group
+        if group not in gs_by_name:
+            e=ET.SubElement(gs_cats,GNS+"categoryEntry",{"id":new_id(group),"name":group,"hidden":"false"})
+            gs_by_name[group]=e
+    target_by_group={group:gs_by_name[group].get("id") for group in GROUPS}
+    # Remove old Frozen Cogs browsing links from its force entry only.
+    force_links=fc_force.find(GNS+"categoryLinks")
+    for link in list(force_links):
+        force_links.remove(link)
+    for group in GROUPS:
+        ET.SubElement(force_links,GNS+"categoryLink",{
+            "id":new_id("force/"+group),"name":group,
+            "targetId":target_by_group[group],"hidden":"false","primary":"false"})
+    # Remove any local duplicates of the nine shared categories.
+    for e in list(cats):
+        if e.get("name") in GROUPS:
+            cats.remove(e)
     counts=Counter()
     units=[u for u in children(entries,"selectionEntry") if u.get("type")=="unit"]
     if len(units)!=169:raise ValueError(f"Expected 169 root units, found {len(units)}")
@@ -63,7 +85,12 @@ def run():
         old=primary[0].get("name")
         keys={l.get("name","").upper() for l in all_links}
         group=select_group(unit,old,keys)
-        target=by_name[group].get("id")
+        target=target_by_group[group]
+        # Remove outdated category links with these same visible group labels.
+        for l in list(all_links):
+            if l.get("name")==group and l.get("targetId")!=target:
+                links.remove(l)
+                all_links.remove(l)
         matches=[l for l in all_links if l.get("targetId")==target]
         if matches:
             chosen=matches[0]
@@ -78,5 +105,6 @@ def run():
         raise ValueError(f"Unexpected grouping counts: {counts}")
     if counts["Silver Tempests"]!=5:raise ValueError("Silver Tempests must contain five units")
     tree.write(PATH,encoding="utf-8",xml_declaration=True)
+    gs_tree.write(gs_path,encoding="utf-8",xml_declaration=True)
     print("Nine primary roster categories:",dict(counts))
 if __name__=="__main__":run()
