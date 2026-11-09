@@ -34,11 +34,11 @@ def select_group(unit,old,keywords):
     if old in {"Chapter Command","Named Characters"} or "CHARACTER" in keywords or "LEADER" in keywords:return "Characters"
     if old=="Battleline":return "Battleline"
     if old in VEHICLE_GROUPS or "VEHICLE" in keywords:return "Vehicles"
+    if name in {"Iron Firewall Relay Node","Coldforge Field Fabricator","Canticle Relay Spire"}:
+        return "Vehicles"
     if old in INFANTRY_GROUPS or old in {"Sacred Forge Support","Harmonic Conclave"} or "INFANTRY" in keywords or "MOUNTED" in keywords:
         return "Infantry"
     # Uncrewed relay nodes and field fabricators are equipment/vehicle support.
-    if name in {"Iron Firewall Relay Node","Coldforge Field Fabricator","Canticle Relay Spire"}:
-        return "Vehicles"
     raise ValueError(f"Unclassified unit: {name} / {old} / {sorted(keywords)}")
 def run():
     tree=ET.parse(PATH);root=tree.getroot()
