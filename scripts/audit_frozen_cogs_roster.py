@@ -27,7 +27,7 @@ def inspect():
     checks["root_units"]=len(roots)
     if len(roots)!=169:errors.append(f"Expected 169 root units (164 Frozen Cogs + 5 Silver Tempests), found {len(roots)}")
     silver_names={"Stormseer", "Tidebound Intervention Squad", "Silver Fang Terminators", "Tempest Talons", "Stormheart Dreadnought"}
-    silver_categories={e.get("id") for e in cat.findall("./"+NS+"categoryEntries/"+NS+"categoryEntry") if e.get("name")=="Silver Tempests"}
+    silver_categories={e.get("id") for e in gs.findall("./"+GNS+"categoryEntries/"+GNS+"categoryEntry") if e.get("name")=="Silver Tempests"}
     if len(silver_categories)!=1:
         errors.append("Expected exactly one Silver Tempests category")
     for unit_name in sorted(silver_names):
@@ -40,6 +40,23 @@ def inspect():
         if len(primary)!=1 or primary[0].get("targetId") not in silver_categories:
             errors.append(f"{unit_name}: primary category must be Silver Tempests")
     checks["silver_tempests_units"]=sum(u.get("name") in silver_names for u in roots)
+    expected_groups={"Characters","Battleline","Infantry","Dreadnoughts & Automata","Vehicles","Aircraft","Daemon Engines","Auxiliaries","Silver Tempests"}
+    fc_force=next((x for x in gs.findall("./"+GNS+"forceEntries/"+GNS+"forceEntry") if x.get("name")=="Frozen Cogs Expeditionary Force"),None)
+    fc_links=[] if fc_force is None else fc_force.findall("./"+GNS+"categoryLinks/"+GNS+"categoryLink")
+    if {x.get("name") for x in fc_links}!=expected_groups or len(fc_links)!=9:
+        errors.append("Frozen Cogs force entry must expose exactly nine browsing categories")
+    group_ids={e.get("id") for e in gs.findall("./"+GNS+"categoryEntries/"+GNS+"categoryEntry") if e.get("name") in expected_groups}
+    counts=Counter()
+    for u in roots:
+        links=u.findall("./"+NS+"categoryLinks/"+NS+"categoryLink")
+        prim=[x for x in links if x.get("primary")=="true"]
+        if len(prim)!=1 or prim[0].get("targetId") not in group_ids:
+            errors.append(f"{u.get('name')}: primary category not in nine-category roster")
+        elif prim:
+            counts[prim[0].get("name")]+=1
+    if set(counts)!=expected_groups:errors.append(f"Missing populated roster groups: {expected_groups-set(counts)}")
+    checks["nine_category_counts"]=dict(counts)
+
     if any(u.get("type")!="unit" or u.get("import")!="true" for u in roots):
         errors.append("Root-unit type or import flags invalid")
     ids=[node.get("id") for node in cat.iter() if node.get("id")]
