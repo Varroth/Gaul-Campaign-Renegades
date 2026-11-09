@@ -22,6 +22,8 @@ jobs:
           python-version: '3.12'
       - name: Install Silver Tempests intervention contingent
         run: python scripts/install_silver_tempests.py
+      - name: Consolidate Frozen Cogs into nine roster categories
+        run: python scripts/group_frozen_cogs_categories.py
       - name: Normalize revision metadata
         env:
           BEFORE: ${{ github.event.before }}
