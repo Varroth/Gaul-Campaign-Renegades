@@ -22,9 +22,8 @@ jobs:
           python-version: '3.12'
       - name: Install Silver Tempests intervention contingent
         run: python scripts/install_silver_tempests.py
-      - name: Restore last working Frozen Cogs category layout
-        run: |
-          git show 126c4affbf54a4e4e18e9967aefdfdb93c547b3d:Frozen_Cogs.cat > Frozen_Cogs.cat
+      - name: Build and register nine Frozen Cogs categories
+        run: python scripts/group_frozen_cogs_categories.py
       - name: Normalize revision metadata
         env:
           BEFORE: ${{ github.event.before }}
