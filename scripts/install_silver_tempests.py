@@ -14,11 +14,12 @@ def el(parent, tag, key, **attrs): return add(parent, tag, id=uid(key), **attrs)
 def characteristic(parent, name, typeid, value): add(parent, "characteristic", name=name, typeId=typeid).text=str(value)
 
 CAT = uid("category")
+TZEENTCH = uid("category/tzeentch")
 KW = {"ASTARTES":"adbd-c48e-4b21-a001", "CHAOS":"f3a9-cba5-9153-4501",
       "PSYKER":"24cb-d5b2-6056-59d1", "Infantry":"d640-7a85-a199-c350",
       "VEHICLE":"e9b8-90bf-98a0-69e0", "WALKER":"75e8-ab1d-0a0f-89f1",
       "DREADNOUGHT":"61bb-d5dd-f5e7-e5d5", "LEADER":"962b-fca8-d881-0729",
-      "JUMP PACK":"625d-1d06-b00a-9f58"}
+      "JUMP PACK":"625d-1d06-b00a-9f58", "TZEENTCH":TZEENTCH}
 STATS = {"M":"8ffa-8367-2184-5557","T":"c2bc-ad63-c63b-5cea",
          "Sv":"f078-5176-43c6-5f6a","W":"ecdc-11e1-15d1-5780",
          "Ld":"2bb6-cceb-9d3f-5f47","OC":"6bb9-f7e0-3ec4-5517",
@@ -63,6 +64,8 @@ def build():
     if cats is None: cats=add(root,"categoryEntries")
     if not any(c.get("name")=="Silver Tempests" for c in cats):
         el(cats,"categoryEntry","category",name="Silver Tempests",hidden="false")
+    if not any(c.get("name")=="TZEENTCH" for c in cats):
+        el(cats,"categoryEntry","category/tzeentch",name="TZEENTCH",hidden="false")
     entries=root.find(q("selectionEntries"))
     if entries is None: raise RuntimeError("Missing root selectionEntries")
     existing={e.get("name") for e in entries}
@@ -73,8 +76,12 @@ def build():
         el(constraints,"constraint",name+"/limit",type="max",field="selections",scope="roster",value=str(max_units),shared="true")
         links=add(e,"categoryLinks")
         el(links,"categoryLink",name+"/category",name="Silver Tempests",targetId=CAT,hidden="false",primary="true")
-        for k in keys:
+        for k in keys + ["TZEENTCH"]:
             el(links,"categoryLink",name+"/kw/"+k,name=k,targetId=KW[k],hidden="false",primary="false")
+        keywords=", ".join(["SILVER TEMPESTS"]+[k.upper() for k in keys]+["TZEENTCH"])
+        rules=add(e,"rules")
+        rule=el(rules,"rule",name+"/keywords",name="Keywords",hidden="false")
+        add(rule,"description").text=keywords+"."
         profiles=add(e,"profiles")
         p=el(profiles,"profile",name+"/stats",name=name,typeId="0cb1-7394-fb88-5322",typeName="Unit",hidden="false")
         ch=add(p,"characteristics")
