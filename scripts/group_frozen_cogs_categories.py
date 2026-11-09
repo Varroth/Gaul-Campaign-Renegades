@@ -105,6 +105,7 @@ def run():
         raise ValueError(f"Unexpected grouping counts: {counts}")
     if counts["Silver Tempests"]!=5:raise ValueError("Silver Tempests must contain five units")
     tree.write(PATH,encoding="utf-8",xml_declaration=True)
+    ET.register_namespace("",GNS[1:-1])
     gs_tree.write(gs_path,encoding="utf-8",xml_declaration=True)
     print("Nine primary roster categories:",dict(counts))
 if __name__=="__main__":run()
