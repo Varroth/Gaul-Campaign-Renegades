@@ -40,7 +40,7 @@ class FactionKeywords(unittest.TestCase):
         cls.fc, cls.fk = read_entries('Frozen_Cogs.cat')
 
     def test_every_playable_entry_has_an_exported_keyword_set(self):
-        for units, cats, size in [(self.iw, self.ik, 96), (self.fc, self.fk, 164)]:
+        for units, cats, size in [(self.iw, self.ik, 96), (self.fc, self.fk, 169)]:
             self.assertEqual(len(units), size)
             for name, unit in units.items():
                 with self.subTest(unit=name):
@@ -57,6 +57,12 @@ class FactionKeywords(unittest.TestCase):
                     if ally:
                         self.assertTrue({'DAEMON', 'KHORNE'} <= keys)
                         self.assertNotIn('INFERNAL WARRIORS', fixed(unit, cats))
+                    elif units is self.fc and name in {
+                        'Stormseer', 'Tidebound Intervention Squad', 'Silver Fang Terminators',
+                        'Tempest Talons', 'Stormheart Dreadnought'
+                    }:
+                        self.assertTrue({'SILVER TEMPESTS', 'TZEENTCH', 'CHAOS', 'ASTARTES'} <= keys)
+                        self.assertNotIn('FROZEN COGS', keys)
                     else:
                         self.assertIn('INFERNAL WARRIORS' if units is self.iw else 'FROZEN COGS', keys)
 
