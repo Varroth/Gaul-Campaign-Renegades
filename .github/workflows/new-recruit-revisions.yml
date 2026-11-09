@@ -24,6 +24,8 @@ jobs:
         run: python scripts/install_silver_tempests.py
       - name: Build and register nine Frozen Cogs categories
         run: python scripts/group_frozen_cogs_categories.py
+      - name: Consolidate Infernal Warriors roster into ten categories
+        run: python scripts/group_infernal_warriors_categories.py
       - name: Normalize revision metadata
         env:
           BEFORE: ${{ github.event.before }}
