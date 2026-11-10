@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="0408-b3dc-97f0-53dc" name="Gaul Campaign: Renegades" revision="13" battleScribeVersion="2.03">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="0408-b3dc-97f0-53dc" name="Gaul Campaign: Renegades" revision="14" battleScribeVersion="2.03">
   <costTypes>
     <costType id="0246-3343-a75c-5ffa" name="pts" defaultCostLimit="-1.0" hidden="false" />
     <costType id="6c3b-5f19-3bc2-5dbb" name="DP" defaultCostLimit="3.0" hidden="false" />
@@ -58,7 +58,7 @@
   <forceEntries>
     <forceEntry id="73a9-6482-df85-55c4" name="Infernal Warriors Muster" hidden="false">
       <categoryLinks>
-        <categoryLink id="0352845a-a8b5-5517-829d-b64b3a1c6051" name="Army Configuration" targetId="946fe999-f47e-59a0-bad1-701f4a973770" hidden="false" primary="false" /><categoryLink id="29d2ef8e-5418-5a02-b69e-0bb96d1a6a27" name="Characters" targetId="c1bd73c6-6a54-5bc3-ad26-514cbbbf90f6" hidden="false" primary="false" /><categoryLink id="bec9-e84b-e7d4-52e8" name="Battleline" hidden="false" targetId="ec2c-68bb-bfbc-5ee3" primary="false" />
+        <categoryLink id="cddba47a-497f-5f8d-8908-62fbffcc2118" name="Detachments" targetId="3c17-c261-4038-5fcc" hidden="false" primary="false" /><categoryLink id="0352845a-a8b5-5517-829d-b64b3a1c6051" name="Army Configuration" targetId="946fe999-f47e-59a0-bad1-701f4a973770" hidden="false" primary="false" /><categoryLink id="29d2ef8e-5418-5a02-b69e-0bb96d1a6a27" name="Characters" targetId="c1bd73c6-6a54-5bc3-ad26-514cbbbf90f6" hidden="false" primary="false" /><categoryLink id="bec9-e84b-e7d4-52e8" name="Battleline" hidden="false" targetId="ec2c-68bb-bfbc-5ee3" primary="false" />
         <categoryLink id="48f94b30-ca5e-5848-9d6f-494880f97998" name="Infantry &amp; Elites" targetId="dae8ec9a-f821-53bc-b6eb-794310db1e11" hidden="false" primary="false" /><categoryLink id="4892-9cac-0368-5f7a" name="Lost Cohort" hidden="false" targetId="2962-6989-212f-598d" primary="false">
           <constraints><constraint field="selections" scope="force" value="2" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="bf50-49c8-01dd-51e6" type="max" /></constraints>
         </categoryLink>
