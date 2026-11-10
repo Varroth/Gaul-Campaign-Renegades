@@ -70,10 +70,10 @@ class InfernalCategoryTests(unittest.TestCase):
         ]:
             self.assertIn(old_tag, {l.get("name") for l in children(by_name[name], "categoryLinks")})
         force_links = children(self.force, "categoryLinks")
-        for old_tag in ("Khorne Allies", "Detachments", "Muster Settings", "Force Dispositions"):
-            self.assertTrue(any(l.get("name") == old_tag and l.get("hidden") == "true"
-                                for l in force_links), old_tag)
-        for tag in ("Khorne Allies", "Lost Cohort"):
+        for old_tag in ("Command", "Infantry", "Khorne Allies", "Detachments",
+                        "Muster Settings", "Force Dispositions"):
+            self.assertFalse(any(l.get("name") == old_tag for l in force_links), old_tag)
+        for tag in ("Khorne Allies", "Lost Cohort", "Detachments"):
             matching = [e for e in children(self.system, "categoryEntries") if e.get("name") == tag]
             self.assertTrue(matching, tag)
             self.assertTrue(children(matching[0], "constraints"), tag)
