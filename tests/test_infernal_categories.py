@@ -1,11 +1,11 @@
-"""Regression tests for the ten Infernal Warriors New Recruit sections."""
+"""Regression tests for Infernal Warriors New Recruit browsing and detachment access."""
 import unittest
 import xml.etree.ElementTree as ET
 
 from scripts.check_repository import ROOT, children
 
 EXPECTED = [
-    "Army Configuration", "Characters", "Battleline", "Infantry & Elites",
+    "Detachments", "Army Configuration", "Characters", "Battleline", "Infantry & Elites",
     "Lost Cohort", "Dreadnoughts", "Vehicles & Artillery", "Aircraft",
     "Daemon Engines", "Auxiliaries & Allies",
 ]
@@ -39,6 +39,10 @@ class InfernalCategoryTests(unittest.TestCase):
             name = groups[primary[0].get("targetId")]
             categories.setdefault(name, []).append(entry.get("name"))
         self.assertEqual(set(categories), set(EXPECTED))
+        self.assertEqual(len(categories["Detachments"]), 4)
+        self.assertEqual(len(categories["Army Configuration"]), 3)
+        self.assertEqual(len(categories["Characters"]), 22)
+        self.assertEqual(len([l for l in children(self.force, "categoryLinks") if l.get("hidden") == "true"]), 0)
 
     def test_unique_formation_and_old_rules_tags_remain(self):
         by_name = {e.get("name"): e for e in self.entries}
@@ -56,6 +60,10 @@ class InfernalCategoryTests(unittest.TestCase):
             "Bloodmarked Thralls": "Auxiliaries & Allies",
             "Bloodletters": "Auxiliaries & Allies",
             "01 — START HERE: Battle Size & Enhancements": "Army Configuration",
+            "DETACHMENT — War Hounds’ Legacy": "Detachments",
+            "DETACHMENT — Crimson Onslaught": "Detachments",
+            "DETACHMENT — Iron Reavers": "Detachments",
+            "DETACHMENT — Breach and Ruin": "Detachments",
         }
         for name, expected in samples.items():
             if name not in by_name and name.startswith("01 — "):
@@ -70,7 +78,11 @@ class InfernalCategoryTests(unittest.TestCase):
         ]:
             self.assertIn(old_tag, {l.get("name") for l in children(by_name[name], "categoryLinks")})
         force_links = children(self.force, "categoryLinks")
-        for old_tag in ("Command", "Infantry", "Khorne Allies", "Detachments",
+        for detachment in (n for n in by_name if n.startswith("DETACHMENT — ")):
+            categories = {l.get("name") for l in children(by_name[detachment], "categoryLinks")}
+            self.assertIn("Detachments", categories)
+            self.assertNotIn("Army Configuration", categories)
+        for old_tag in ("Command", "Infantry", "Khorne Allies",
                         "Muster Settings", "Force Dispositions"):
             self.assertFalse(any(l.get("name") == old_tag for l in force_links), old_tag)
         for tag in ("Khorne Allies", "Lost Cohort", "Detachments"):
