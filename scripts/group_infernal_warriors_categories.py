@@ -3,10 +3,12 @@
 
 Retain every old unit category as a secondary link (especially rules-bearing
 Khorne Allies, Detachments, Lost Cohort and muster-setting categories).
-Keep old force-category links, hidden from browsing, to preserve constraints.
+Remove old force-category browse links (hidden links can suppress units in NR).
+Relocate the Detachments force limits onto the original category entry.
 Does not change costs, weapons, units, keywords or selectable equipment.
 """
 from collections import Counter
+import copy
 from pathlib import Path
 import uuid
 import xml.etree.ElementTree as ET
@@ -160,11 +162,27 @@ def run():
             })
         link.set("hidden", "false")
         visible.append(link)
-    old_hidden = [link for link in original_force_links if link not in visible]
-    for link in old_hidden:
-        link.set("hidden", "true")
-    # Do not discard their constraints: the original Khorne Allies and
-    # Detachments category links stay in place, but are not browse sections.
+    legacy = [link for link in original_force_links if link not in visible]
+    # New Recruit may treat a hidden force category as hiding any unit that
+    # carries the matching secondary category tag. Never retain old browse
+    # links with hidden=true; remove them from this force altogether.
+    # Preserve the original 1-4 Detachments selection rule on its category.
+    detachment = next(c for c in system_categories
+                      if c.get("name") == "Detachments" and c.get("id") == "3c17-c261-4038-5fcc")
+    for old_link in legacy:
+        if old_link.get("name") == "Detachments":
+            old_constraints = direct(old_link, "constraints", "constraint", SNS)
+            if old_constraints:
+                destination = detachment.find(q(SNS, "constraints"))
+                if destination is None:
+                    destination = ET.SubElement(detachment, q(SNS, "constraints"))
+                known = {c.get("id") for c in destination}
+                for rule in old_constraints:
+                    if rule.get("id") not in known:
+                        destination.append(copy.deepcopy(rule))
+                        known.add(rule.get("id"))
+    # Khorne Allies, Lost Cohort and muster limits live on the original
+    # shared category entries; these category tags remain on every unit.
     force_links[:] = visible + old_hidden
 
     resulting = [(u.get("id"), u.get("name"), u.get("type")) for u in selections]
