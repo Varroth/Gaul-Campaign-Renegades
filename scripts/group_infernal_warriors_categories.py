@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Organize Infernal Warriors roster into eleven sections, with detachments first.
+"""Keep ten Infernal Warriors sections; show numbered detachment choices in Army Configuration.
 
 Retain every old unit category as a secondary link (especially rules-bearing
 Khorne Allies, Detachments, Lost Cohort and muster-setting categories).
@@ -19,7 +19,7 @@ SYS_PATH = ROOT / "Gaul_Campaign_Renegades.gst"
 CNS = "http://www.battlescribe.net/schema/catalogueSchema"
 SNS = "http://www.battlescribe.net/schema/gameSystemSchema"
 GROUPS = (
-    "Detachments", "Army Configuration", "Characters", "Battleline",
+    "Army Configuration", "Characters", "Battleline",
     "Infantry & Elites", "Lost Cohort", "Dreadnoughts",
     "Vehicles & Artillery", "Aircraft", "Daemon Engines",
     "Auxiliaries & Allies",
@@ -38,7 +38,7 @@ EXISTING = {
 OLD_TO_NEW = {
     "Muster Settings": "Army Configuration",
     "Force Dispositions": "Army Configuration",
-    "Detachments": "Detachments",
+    "Detachments": "Army Configuration",
     "Enhancements": "Army Configuration",
     "Configuration Tools": "Army Configuration",
     "Command": "Characters",
@@ -105,7 +105,7 @@ def run():
     root_entries = list(selections)
     if len(root_entries) < 103 or any(e.tag != q(CNS, "selectionEntry") for e in root_entries):
         raise ValueError("Unexpected root entry layout; refusing to remove or regroup units")
-    original_ids = [(u.get("id"), u.get("name"), u.get("type")) for u in root_entries]
+    original_ids = [(u.get("id"), u.get("type")) for u in root_entries]
     counts = Counter()
     for entry in root_entries:
         links = entry.find(q(CNS, "categoryLinks"))
@@ -116,13 +116,13 @@ def run():
         if len(primary) != 1:
             raise ValueError("Expected one primary category: " + str(entry.get("name")))
         previous = primary[0].get("name")
-        # Detachment cards already received an Army Configuration primary link
-        # during the ten-category migration. The original Detachments link
-        # remains secondary; use it to restore these four choices to the
-        # dedicated, immediately visible Detachments section.
+        # Detachments remain independently selectable at the roster root,
+        # but their primary browse category is Army Configuration. Their
+        # legacy Detachments category tag stays secondary for force limits
+        # and rules that reference the unchanged IDs.
         is_detachment = any(link.get("targetId") == targets["Detachments"]
                             for link in all_links)
-        new = ("Detachments" if is_detachment
+        new = ("Army Configuration" if is_detachment
                else previous if previous in GROUPS
                else OLD_TO_NEW.get(previous))
         if new not in GROUPS:
@@ -144,12 +144,21 @@ def run():
         for link in all_links:
             link.set("primary", "false")
         if is_detachment:
-            # The old Army Configuration browse tag was purely structural.
-            # Remove it from these four choices to avoid duplicate listings,
-            # preserving every original Detachments tag, ID and rule.
-            for link in list(links):
-                if link.get("targetId") == targets["Army Configuration"]:
-                    links.remove(link)
+            old_name = entry.get("name", "")
+            # Use conspicuous names and numerical ordering inside the
+            # existing configuration tab; do not add a new category or move
+            # the detachment's ID (other rules target it directly).
+            if old_name.startswith("DETACHMENT — "):
+                label = old_name.removeprefix("DETACHMENT — ")
+            elif old_name.startswith("02 — DETACHMENT: "):
+                label = old_name.removeprefix("02 — DETACHMENT: ")
+            else:
+                raise ValueError("Unknown detachment entry name: " + old_name)
+            entry.set("name", "02 — DETACHMENT: " + label)
+        elif entry.get("id") == "8d559da4-63be-49c6":
+            entry.set("name", "03 — MISSION: Select One Disposition")
+        elif entry.get("id") == "f1d2-4a82-72d7-5b2d":
+            entry.set("name", "04 — RULES: Infernal Warriors Quick Reference")
         chosen.set("primary", "true")
         chosen.set("hidden", "false")
         counts[new] += 1
@@ -201,21 +210,32 @@ def run():
     # shared category entries; these category tags remain on every unit.
     force_links[:] = visible
 
-    resulting = [(u.get("id"), u.get("name"), u.get("type")) for u in selections]
+    resulting = [(u.get("id"), u.get("type")) for u in selections]
     if sorted(resulting) != sorted(original_ids):
         raise ValueError("Root entries were changed during reorganization")
-    if {l.get("name") for l in visible} != set(GROUPS) or len(visible) != 11:
-        raise ValueError("Did not create exactly eleven visible sections")
-    if (counts["Detachments"] != 4 or counts["Army Configuration"] != 3
-            or counts["Characters"] != 22):
-        raise ValueError("Detachment, configuration or character entries missing")
+    if {l.get("name") for l in visible} != set(GROUPS) or len(visible) != 10:
+        raise ValueError("Did not create exactly ten visible sections")
+    if counts["Army Configuration"] != 7 or counts["Characters"] != 22:
+        raise ValueError("Configuration or character entries missing")
+    det_entries = [e for e in selections if e.get("name", "").startswith("02 — DETACHMENT: ")]
+    if len(det_entries) != 4:
+        raise ValueError("Expected four directly selectable detachment entries")
+    config_entries = [e.get("name", "") for e in selections
+                      if any(l.get("primary") == "true" and
+                             l.get("targetId") == targets["Army Configuration"]
+                             for l in direct(e, "categoryLinks", "categoryLink", CNS))]
+    if (not config_entries[0].startswith("01 — START HERE:")
+            or not all(n.startswith("02 — DETACHMENT: ") for n in config_entries[1:5])
+            or not config_entries[5].startswith("03 — MISSION:")
+            or not config_entries[6].startswith("04 — RULES:")):
+        raise ValueError("Army Configuration order is not easy to browse")
     if sum(counts.values()) != len(root_entries):
         raise ValueError("Category assignment did not cover every entry")
     ET.register_namespace("", CNS)
     cat_tree.write(CAT_PATH, encoding="utf-8", xml_declaration=True)
     ET.register_namespace("", SNS)
     sys_tree.write(SYS_PATH, encoding="utf-8", xml_declaration=True)
-    print("Infernal Warriors 11 browse categories:", dict(counts))
+    print("Infernal Warriors 10 browse categories, detachments inside Army Configuration:", dict(counts))
 
 if __name__ == "__main__":
     run()
