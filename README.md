@@ -28,3 +28,11 @@ If a selection is missing, check it in a fresh roster of the same faction. This 
 ## Repository reference
 
 The root game system and faction catalogues are the live files. The [publication guide](GITHUB_SETUP.md) covers validation and updates. [Maintenance reports](docs/) record individual changes, and the [archive](docs/archive/) preserves earlier releases. The [offline field checker](ROSTER_FIELD_CHECK.html) is a helper for exported Infernal Warriors rosters.
+
+## Battle Simulator (alpha playtest)
+
+The [Gaul Campaign tactical simulator](docs/simulator/index.html) is a separate browser game with editable armies, movement, ranged and melee combat, objectives, computer turns and a ten-match Battle Lab. It covers Infernal Warriors, Frozen Cogs, Abandoned Dead and Silver Tempests using **illustrative, provisional** unit profiles rather than imported New Recruit points.
+
+- [Open the website source](docs/simulator/index.html) or [review editable code and instructions](simulator/).
+- To host the site publicly, enable **Settings → Pages → Deploy from a branch → main → /docs**. The planned website path is `/Gaul-Campaign-Renegades/simulator/`.
+- New Recruit catalogues remain independent and untouched by simulator logic.
