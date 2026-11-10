@@ -17,7 +17,7 @@ Homebrew Warhammer 40,000 army catalogues for New Recruit.
 | Abandoned Dead | 61 units, including Astartes, Liberation Directorate forces and Nullifier specialists. |
 | Silver Tempest | Reserved for a future army. No units are available. |
 
-For Infernal Warriors, open **Army Configuration** to set battle size, directly select one or more of the four **02 — DETACHMENT** entries (War Hounds’ Legacy, Crimson Onslaught, Iron Reavers or Breach and Ruin), then choose mission disposition and consult the rules reference. Pay for each declared Leader separately. Each Lost Cohort unit requires its own qualifying Chaplain. For a Unified Forces battle, agree the coalition with your opponents and muster each contingent from its own catalogue.
+For Infernal Warriors, open **Army Configuration**, add **02 — DETACHMENTS: Choose Detachments**, and select your detachments inside its menu (War Hounds’ Legacy, Crimson Onslaught, Iron Reavers or Breach and Ruin). The menu supports one to four different detachments subject to your DP budget. Set battle size first, then select the mission disposition and consult the rules reference. Pay for each declared Leader separately. Each Lost Cohort unit requires its own qualifying Chaplain. For a Unified Forces battle, agree the coalition with your opponents and muster each contingent from its own catalogue.
 
 ## Update an existing installation
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Keep ten Infernal Warriors sections; show numbered detachment choices in Army Configuration.
+"""Keep ten Infernal Warriors sections; nest detachment choices in one configuration entry.
 
 Retain every old unit category as a secondary link (especially rules-bearing
 Khorne Allies, Detachments, Lost Cohort and muster-setting categories).
@@ -103,9 +103,10 @@ def run():
             targets[group] = cat_id
 
     root_entries = list(selections)
-    if len(root_entries) < 103 or any(e.tag != q(CNS, "selectionEntry") for e in root_entries):
+    if (len(root_entries) not in (100, 103)
+            or any(e.tag != q(CNS, "selectionEntry") for e in root_entries)):
         raise ValueError("Unexpected root entry layout; refusing to remove or regroup units")
-    original_ids = [(u.get("id"), u.get("type")) for u in root_entries]
+    original_ids = {e.get("id") for e in root_entries}
     counts = Counter()
     for entry in root_entries:
         links = entry.find(q(CNS, "categoryLinks"))
@@ -144,17 +145,9 @@ def run():
         for link in all_links:
             link.set("primary", "false")
         if is_detachment:
-            old_name = entry.get("name", "")
-            # Use conspicuous names and numerical ordering inside the
-            # existing configuration tab; do not add a new category or move
-            # the detachment's ID (other rules target it directly).
-            if old_name.startswith("DETACHMENT — "):
-                label = old_name.removeprefix("DETACHMENT — ")
-            elif old_name.startswith("02 — DETACHMENT: "):
-                label = old_name.removeprefix("02 — DETACHMENT: ")
-            else:
-                raise ValueError("Unknown detachment entry name: " + old_name)
-            entry.set("name", "02 — DETACHMENT: " + label)
+            # Preserve detachment selection IDs; the original four choices
+            # will be moved into the selection group below.
+            pass
         elif entry.get("id") == "8d559da4-63be-49c6":
             entry.set("name", "03 — MISSION: Select One Disposition")
         elif entry.get("id") == "f1d2-4a82-72d7-5b2d":
@@ -162,6 +155,101 @@ def run():
         chosen.set("primary", "true")
         chosen.set("hidden", "false")
         counts[new] += 1
+
+    # One expandable configuration entry keeps detachment choices out of
+    # the roster's root list, but preserves the four original upgrade IDs,
+    # rules, DP costs, constraints and selection-based roster modifiers.
+    parent_id = uid("entry/detachments-selector")
+    group_id = uid("entry/detachments-selector/group")
+    container_id = targets["Army Configuration"]
+    parents = [e for e in selections if e.get("id") == parent_id]
+    if len(parents) > 1:
+        raise ValueError("Duplicate detachment-selector parent")
+    if parents:
+        selector = parents[0]
+    else:
+        selector = ET.Element(q(CNS, "selectionEntry"), {
+            "id": parent_id, "name": "02 — DETACHMENTS: Choose Detachments",
+            "hidden": "false", "collective": "false", "type": "upgrade", "import": "true",
+        })
+        slinks = ET.SubElement(selector, q(CNS, "categoryLinks"))
+        ET.SubElement(slinks, q(CNS, "categoryLink"), {
+            "id": uid("entry/detachments-selector/category"),
+            "name": "Army Configuration", "targetId": container_id,
+            "hidden": "false", "primary": "true",
+        })
+        c = ET.SubElement(selector, q(CNS, "constraints"))
+        ET.SubElement(c, q(CNS, "constraint"), {
+            "id": uid("entry/detachments-selector/max"),
+            "type": "max", "field": "selections", "scope": "roster",
+            "value": "1", "percentValue": "false", "shared": "true",
+            "includeChildSelections": "false", "includeChildForces": "false",
+        })
+        selections.append(selector)
+    selector.set("name", "02 — DETACHMENTS: Choose Detachments")
+    groups_container = selector.find(q(CNS, "selectionEntryGroups"))
+    if groups_container is None:
+        groups_container = ET.SubElement(selector, q(CNS, "selectionEntryGroups"))
+    groups = [g for g in groups_container if g.get("id") == group_id]
+    if len(groups) > 1:
+        raise ValueError("Duplicate nested detachment group")
+    if groups:
+        group = groups[0]
+    else:
+        group = ET.SubElement(groups_container, q(CNS, "selectionEntryGroup"), {
+            "id": group_id, "name": "Select Detachments (1–4; DP budget applies)",
+            "hidden": "false", "collective": "false", "import": "true",
+        })
+        cs = ET.SubElement(group, q(CNS, "constraints"))
+        for kind, value in (("min", "1"), ("max", "4")):
+            ET.SubElement(cs, q(CNS, "constraint"), {
+                "id": uid("entry/detachments-selector/group/" + kind),
+                "type": kind, "field": "selections", "scope": "parent",
+                "value": value, "percentValue": "false", "shared": "true",
+                "includeChildSelections": "false", "includeChildForces": "false",
+            })
+    options = group.find(q(CNS, "selectionEntries"))
+    if options is None:
+        options = ET.SubElement(group, q(CNS, "selectionEntries"))
+    detached = []
+    for entry in list(selections):
+        if entry.get("id") == parent_id:
+            continue
+        links = direct(entry, "categoryLinks", "categoryLink", CNS)
+        if any(link.get("targetId") == targets["Detachments"] for link in links):
+            detached.append(entry)
+    for entry in detached:
+        selections.remove(entry)
+        options.append(entry)
+    all_options = list(options)
+    labels = ("Breach and Ruin", "Crimson Onslaught", "Iron Reavers", "War Hounds’ Legacy")
+    if len(all_options) != 4:
+        raise ValueError(f"Expected exactly four nested detachments: {len(all_options)}")
+    for entry in all_options:
+        old_name = entry.get("name", "")
+        if old_name.startswith("DETACHMENT — "):
+            label = old_name.removeprefix("DETACHMENT — ")
+        elif old_name.startswith("02 — DETACHMENT: "):
+            label = old_name.removeprefix("02 — DETACHMENT: ")
+        else:
+            label = old_name
+        if label not in labels:
+            raise ValueError("Unexpected detachment option " + label)
+        entry.set("name", label)
+        tags = direct(entry, "categoryLinks", "categoryLink", CNS)
+        if not any(tag.get("targetId") == targets["Detachments"] for tag in tags):
+            raise ValueError("Detachment lost its rules category " + label)
+        if not any(c.get("name") == "DP" for c in direct(entry, "costs", "cost", CNS)):
+            raise ValueError("Detachment lost its DP cost " + label)
+    if {e.get("name") for e in all_options} != set(labels):
+        raise ValueError("Duplicated or missing detachment choice")
+    options[:] = sorted(all_options, key=lambda entry: entry.get("name", "").casefold())
+    # Original standalone detachment IDs moved under the selector. A single
+    # new controller ID is the only additional root selection.
+    root_entries = list(selections)
+    counts["Army Configuration"] -= len(detached)
+    if not parents:
+        counts["Army Configuration"] += 1
 
     # The underlying catalogue's order matches New Recruit's browse order.
     rank = {name: i for i, name in enumerate(GROUPS)}
@@ -210,32 +298,33 @@ def run():
     # shared category entries; these category tags remain on every unit.
     force_links[:] = visible
 
-    resulting = [(u.get("id"), u.get("type")) for u in selections]
-    if sorted(resulting) != sorted(original_ids):
-        raise ValueError("Root entries were changed during reorganization")
+    expected_ids = (original_ids
+                    - {e.get("id") for e in detached}) | {parent_id}
+    actual_ids = {e.get("id") for e in selections}
+    if actual_ids != expected_ids:
+        raise ValueError("Unexpected root entry IDs after detachment nesting")
     if {l.get("name") for l in visible} != set(GROUPS) or len(visible) != 10:
         raise ValueError("Did not create exactly ten visible sections")
-    if counts["Army Configuration"] != 7 or counts["Characters"] != 22:
+    if counts["Army Configuration"] != 4 or counts["Characters"] != 22:
         raise ValueError("Configuration or character entries missing")
-    det_entries = [e for e in selections if e.get("name", "").startswith("02 — DETACHMENT: ")]
-    if len(det_entries) != 4:
-        raise ValueError("Expected four directly selectable detachment entries")
     config_entries = [e.get("name", "") for e in selections
                       if any(l.get("primary") == "true" and
                              l.get("targetId") == targets["Army Configuration"]
                              for l in direct(e, "categoryLinks", "categoryLink", CNS))]
     if (not config_entries[0].startswith("01 — START HERE:")
-            or not all(n.startswith("02 — DETACHMENT: ") for n in config_entries[1:5])
-            or not config_entries[5].startswith("03 — MISSION:")
-            or not config_entries[6].startswith("04 — RULES:")):
+            or config_entries[1] != "02 — DETACHMENTS: Choose Detachments"
+            or not config_entries[2].startswith("03 — MISSION:")
+            or not config_entries[3].startswith("04 — RULES:")):
         raise ValueError("Army Configuration order is not easy to browse")
+    if len(selections) != 100 or len(options) != 4:
+        raise ValueError("Unintended top-level entries or nested detachment count")
     if sum(counts.values()) != len(root_entries):
         raise ValueError("Category assignment did not cover every entry")
     ET.register_namespace("", CNS)
     cat_tree.write(CAT_PATH, encoding="utf-8", xml_declaration=True)
     ET.register_namespace("", SNS)
     sys_tree.write(SYS_PATH, encoding="utf-8", xml_declaration=True)
-    print("Infernal Warriors 10 browse categories, detachments inside Army Configuration:", dict(counts))
+    print("Infernal Warriors ten categories, four detachments nested within one configuration entry:", dict(counts))
 
 if __name__ == "__main__":
     run()
