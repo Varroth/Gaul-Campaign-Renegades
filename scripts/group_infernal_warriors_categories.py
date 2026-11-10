@@ -183,6 +183,7 @@ def run():
                         known.add(rule.get("id"))
     # Khorne Allies, Lost Cohort and muster limits live on the original
     # shared category entries; these category tags remain on every unit.
+    force_links[:] = visible
 
     resulting = [(u.get("id"), u.get("name"), u.get("type")) for u in selections]
     if sorted(resulting) != sorted(original_ids):
