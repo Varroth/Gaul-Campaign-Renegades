@@ -37,3 +37,6 @@ Chapter inventory: 8 Deep-Woken, 6 Stormheart, 2 Abyssal. Separate from 900 acti
 
 ## Implementation status
 This is an organizational baseline, not a completed playable codex. Preserve the Frozen Cogs intervention contingent. Standalone catalogue, rules, points, selectable wargear, leaders, named registers, cultural detail, fleet and armoury require further implementation and validation. No recruitment doctrine changes.
+
+## Catalogue representation — confirmed
+The 250 Astartes available during the Gual Campaign are represented by the Silver Tempests contingent attached to the Frozen Cogs catalogue. The standalone Silver Tempests catalogue represents the full 900-active-Astartes Chapter, including those same 250 warriors and the 650 temporarily isolated in the Eye of Terror. These are overlapping representations, not additive forces. The contingent's selectable units should be drawn from the expeditionary order of battle; this is a narrative establishment, not a mandatory roster size or points limit. Preserve existing intervention entries and expand as required after rules validation.
